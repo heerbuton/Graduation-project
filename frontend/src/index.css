@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .guqin-font {
+    /* 预留: 如果有专用的减字谱字体可以在这里定义并使用 */
+    font-family: "SimSun", "Songti SC", serif;
+  }
+}
