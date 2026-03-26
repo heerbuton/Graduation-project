@@ -1,6 +1,6 @@
 param(
-    [Parameter(Mandatory = $true, Position = 0)]
-    [string]$Message,
+    [Parameter(Position = 0)]
+    [string]$Message = "",
 
     [switch]$SkipPull,
     [switch]$NoPush,
@@ -76,6 +76,13 @@ $pending = git status --porcelain
 if (-not $pending) {
     Write-Host "没有可提交的改动。"
     exit 0
+}
+
+if ([string]::IsNullOrWhiteSpace($Message)) {
+    $Message = Read-Host "请输入本次提交说明"
+}
+if ([string]::IsNullOrWhiteSpace($Message)) {
+    throw "提交说明不能为空。"
 }
 
 Assert-StagedFileSize -limitMB $MaxFileSizeMB

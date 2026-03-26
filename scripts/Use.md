@@ -21,13 +21,20 @@
 在项目根目录执行：
 
 ```powershell
-git sync "本次更新说明"
+git sync
 ```
 
 说明：
 
 - `git sync` 是已配置好的 Git 别名
 - 会调用 `scripts/git-sync.ps1` 自动完成提交与推送
+- 运行后会提示你输入“提交说明”，输入后回车即可继续
+
+也支持直接传入说明（可选）：
+
+```powershell
+git sync "本次更新说明"
+```
 
 ## 3. 常用参数
 
