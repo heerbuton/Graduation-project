@@ -2,7 +2,7 @@ param(
     [Parameter(Position = 0)]
     [string]$Message = "",
 
-    [switch]$SkipPull,
+    [switch]$PullFirst,
     [switch]$NoPush,
 
     [ValidateRange(1, 2048)]
@@ -52,21 +52,9 @@ Set-Location $repoRoot
 
 $branch = Get-CurrentBranch
 
-if (-not $SkipPull) {
-    Write-Host ">> 同步远端分支: origin/$branch"
-    git fetch origin $branch
-    $behindText = git rev-list --count "$branch..origin/$branch"
-    $behind = 0
-    if ($behindText -and ($behindText -match '^\d+$')) {
-        $behind = [int]$behindText
-    }
-
-    if ($behind -gt 0) {
-        Write-Host ">> 本地落后 $behind 个提交，执行 rebase 拉取"
-        git pull --rebase origin $branch
-    } else {
-        Write-Host ">> 本地已是最新，无需 pull"
-    }
+if ($PullFirst) {
+    Write-Host ">> 按参数执行拉取: git pull --rebase origin/$branch"
+    git pull --rebase origin $branch
 }
 
 Write-Host ">> 暂存所有改动"

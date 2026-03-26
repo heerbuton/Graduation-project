@@ -9,12 +9,11 @@
 `git-sync.ps1` 会自动执行以下步骤：
 
 1. 检查当前目录是否在 Git 仓库内
-2. 默认先同步远端（`fetch`，必要时 `pull --rebase`）
-3. `git add -A`
-4. 检查是否有改动（没有改动就退出）
-5. 检查暂存区是否有超大文件（默认拦截 `>=100MB`）
-6. `git commit -m "<你的提交说明>"`
-7. `git push origin <当前分支>`
+2. `git add -A`
+3. 检查是否有改动（没有改动就退出）
+4. 检查暂存区是否有超大文件（默认拦截 `>=100MB`）
+5. `git commit -m "<你的提交说明>"`
+6. `git push origin <当前分支>`
 
 ## 2. 日常使用（推荐）
 
@@ -38,7 +37,7 @@ git sync "本次更新说明"
 
 ## 3. 常用参数
 
-- `-SkipPull`：跳过同步远端步骤
+- `-PullFirst`：提交前先执行 `git pull --rebase origin <当前分支>`
 - `-NoPush`：只提交不推送
 - `-MaxFileSizeMB`：设置大文件拦截阈值（默认 `100`）
 
@@ -48,8 +47,8 @@ git sync "本次更新说明"
 # 只提交，不推送
 git sync "临时提交" -NoPush
 
-# 跳过 pull/rebase（例如离线场景）
-git sync "本地改动" -SkipPull
+# 提交前先 pull 一次
+git sync "本地改动" -PullFirst
 
 # 将拦截阈值调成 120MB（不建议超过 GitHub 限制）
 git sync "更新" -MaxFileSizeMB 120
