@@ -1,0 +1,76 @@
+{
+  "image": "test\\testpicture-1.jpg",
+  "counts": {
+    "yolo_boxes": 378,
+    "topology_groups": 1,
+    "llm_notes": 1
+  },
+  "timing_seconds": {
+    "detect_components": 15.616,
+    "build_topology": 0.127,
+    "infer_pitch_duration": 0.009,
+    "generate_musicxml": 0.004,
+    "total": 15.755
+  },
+  "sample_yolo": [
+    {
+      "class": "十",
+      "bbox": [
+        616.5919075044421,
+        178.8050526166415,
+        640.5329281826315,
+        204.95448629248492
+      ],
+      "conf": 0.47437,
+      "votes": 4
+    },
+    {
+      "class": "九",
+      "bbox": [
+        261.0223925550463,
+        179.4178710183891,
+        294.2490463873582,
+        214.25202729401855
+      ],
+      "conf": 0.843355,
+      "votes": 4
+    },
+    {
+      "class": "名指",
+      "bbox": [
+        585.8967066389073,
+        179.68320306297153,
+        612.4225041237207,
+        218.64072811893365
+      ],
+      "conf": 0.713858,
+      "votes": 5
+    },
+    {
+      "class": "大指",
+      "bbox": [
+        235.05487026880309,
+        182.3038843544706,
+        264.0580948860512,
+        216.93147460276967
+      ],
+      "conf": 0.796875,
+      "votes": 4
+    },
+    {
+      "class": "十",
+      "bbox": [
+        470.75848205539415,
+        183.5236969222888,
+        502.2265898231089,
+        204.41228808871296
+      ],
+      "conf": 0.212498,
+      "votes": 4
+    }
+  ],
+  "sample_topology_keys": [
+    "group_1"
+  ],
+  "xml_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.1 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\">\n<score-partwise version=\"3.1\">\n  <part-list>\n    <score-part id=\"P1\">\n      <part-name>Guqin</part-name>\n    </score-part>\n  </part-list>\n  <part id=\"P1\">\n    <measure number=\"1\">\n      <attributes>\n        <divisions>16</divisions>\n     "
+}

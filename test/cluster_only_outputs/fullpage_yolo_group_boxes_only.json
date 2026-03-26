@@ -1,0 +1,6 @@
+{
+  "image": "F:\\AIcharacter\\End\\test\\fullpage_yolo.jpg",
+  "yolo_boxes": 405,
+  "topology_groups": 117,
+  "output_image": "F:\\AIcharacter\\End\\test\\cluster_only_outputs\\fullpage_yolo_group_boxes_only.jpg"
+}

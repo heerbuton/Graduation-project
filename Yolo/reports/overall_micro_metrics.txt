@@ -1,0 +1,19 @@
+KFold Vote Fusion Overall (Micro)
+device=cuda:0
+folds=[1, 2, 3, 4, 5]
+model_1=F:\AIcharacter\YOLO11\结果\y11_v08_kfold_full_results\y11_v08_kfold_fold1\weights\best.pt
+model_2=F:\AIcharacter\YOLO11\结果\y11_v08_kfold_full_results\y11_v08_kfold_fold2\weights\best.pt
+model_3=F:\AIcharacter\YOLO11\结果\y11_v08_kfold_full_results\y11_v08_kfold_fold3\weights\best.pt
+model_4=F:\AIcharacter\YOLO11\结果\y11_v08_kfold_full_results\y11_v08_kfold_fold4\weights\best.pt
+model_5=F:\AIcharacter\YOLO11\结果\y11_v08_kfold_full_results\y11_v08_kfold_fold5\weights\best.pt
+model_6=F:\AIcharacter\YOLO11\结果\y11_v08_ultimate_2_1_results\y11_v08_ultimate_2_1\weights\best.pt
+model_7=F:\AIcharacter\YOLO11\结果\y11_v08_ultimate_23_results\y11_v08_ultimate_23\weights\best.pt
+model_8=F:\AIcharacter\YOLO11\结果\y11_v10_results\y11_v10_reasonable_aug\weights\best.pt
+vote_iou_threshold=0.6
+min_votes=2
+single_keep_score=0.1
+final_nms_iou=0.55
+TP=4392, FP=3255, FN=1023
+Precision=0.5743
+Recall=0.8111
+F1=0.6725

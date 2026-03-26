@@ -2,7 +2,7 @@ import json
 import logging
 import os
 import re
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import requests
 
@@ -30,6 +30,44 @@ def _sort_group_key(group_id: str) -> tuple:
     return (int(match.group(1)), str(group_id))
 
 
+def _is_marker_payload(payload: Dict[str, Any]) -> bool:
+    marker_type = str(payload.get("marker_type", "")).strip().lower()
+    if marker_type in {"start", "end"}:
+        return True
+    if payload.get("is_marker") or payload.get("is_section_start") or payload.get("is_section_end"):
+        return True
+    return False
+
+
+def _normalize_group_payload(group_id: str, payload: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    if _is_marker_payload(payload):
+        return None
+
+    right_fingering = str(payload.get("right_fingering") or "").strip()
+    left_fingering = str(payload.get("left_fingering") or "").strip()
+    action = str(
+        right_fingering
+        or left_fingering
+        or payload.get("fingering")
+        or payload.get("action")
+        or ""
+    ).strip()
+    finger = str(payload.get("left_finger") or payload.get("finger") or "").strip()
+    position = str(payload.get("hui") or payload.get("position") or "").strip()
+    string = str(payload.get("xian") or payload.get("string") or payload.get("xian_digit") or "").strip()
+
+    return {
+        "group_id": str(group_id),
+        "action": action,
+        "finger": finger,
+        "position": position,
+        "string": string,
+        "right_fingering": right_fingering,
+        "left_fingering": left_fingering,
+        "components": payload.get("components", []),
+    }
+
+
 def _normalize_topology(topology_json: Any) -> List[Dict[str, Any]]:
     normalized: List[Dict[str, Any]] = []
 
@@ -37,31 +75,19 @@ def _normalize_topology(topology_json: Any) -> List[Dict[str, Any]]:
         group_items = sorted(topology_json.items(), key=lambda item: _sort_group_key(item[0]))
         for group_id, payload in group_items:
             payload = payload if isinstance(payload, dict) else {}
-            normalized.append(
-                {
-                    "group_id": str(group_id),
-                    "action": str(payload.get("fingering") or payload.get("action") or "").strip(),
-                    "finger": str(payload.get("finger") or "").strip(),
-                    "position": str(payload.get("position") or "").strip(),
-                    "string": str(payload.get("string") or "").strip(),
-                    "components": payload.get("components", []),
-                }
-            )
+            normalized_payload = _normalize_group_payload(str(group_id), payload)
+            if normalized_payload is None:
+                continue
+            normalized.append(normalized_payload)
         return normalized
 
     if isinstance(topology_json, list):
         for idx, payload in enumerate(topology_json, start=1):
             payload = payload if isinstance(payload, dict) else {}
-            normalized.append(
-                {
-                    "group_id": f"group_{idx}",
-                    "action": str(payload.get("fingering") or payload.get("action") or "").strip(),
-                    "finger": str(payload.get("finger") or "").strip(),
-                    "position": str(payload.get("position") or "").strip(),
-                    "string": str(payload.get("string") or "").strip(),
-                    "components": payload.get("components", []),
-                }
-            )
+            normalized_payload = _normalize_group_payload(f"group_{idx}", payload)
+            if normalized_payload is None:
+                continue
+            normalized.append(normalized_payload)
     return normalized
 
 

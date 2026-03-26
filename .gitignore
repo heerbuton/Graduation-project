@@ -27,6 +27,7 @@ frontend/dist/
 # Runtime artifacts
 backend/static/uploads/
 *.log
+Yolo/weights/
 
 # Secrets / env
 .env
