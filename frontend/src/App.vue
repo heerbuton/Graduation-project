@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-import MusicXmlScoreRenderer from './components/MusicXmlScoreRenderer.vue'
+import ScoreModelRenderer from './components/ScoreModelRenderer.vue'
+import { convertLlmResultToScoreModel } from './utils/scoreModel.js'
 
 // 状态管理
 const fileInput = ref(null)
@@ -15,6 +16,7 @@ const originalImageUrl = ref('')
 const yoloBoxes = ref([])
 const topologyJson = ref(null)
 const musicXml = ref('')
+const scoreModel = ref(null)
 
 const statusMessages = {
   idle: '等待上传...',
@@ -104,6 +106,19 @@ const renderImageWithBoxes = () => {
 // 模拟状态流动的延迟函数，为了展示 UX
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
+const applyPipelineResult = (data, fallbackImageUrl = '') => {
+  originalImageUrl.value = data.original_image_url || fallbackImageUrl
+  yoloBoxes.value = data.yolo_boxes || []
+  topologyJson.value = data.topology_json || null
+  musicXml.value = data.music_xml || ''
+  if (Array.isArray(data.llm_result) && data.llm_result.length > 0) {
+    scoreModel.value = convertLlmResultToScoreModel(data.llm_result, { strict: false })
+  } else {
+    scoreModel.value = data.score_model || convertLlmResultToScoreModel([], { strict: false })
+  }
+  setTimeout(renderImageWithBoxes, 100)
+}
+
 const uploadAndProcess = async () => {
   if (!selectedFile.value) return
   
@@ -134,10 +149,7 @@ const uploadAndProcess = async () => {
     await delay(600)
     
     // 赋值数据
-    originalImageUrl.value = data.original_image_url
-    yoloBoxes.value = data.yolo_boxes || []
-    topologyJson.value = data.topology_json
-    musicXml.value = data.music_xml
+    applyPipelineResult(data)
     
     pipelineStatus.value = 'success'
     
@@ -155,14 +167,33 @@ const reqMockData = async () => {
     try {
         pipelineStatus.value = 'uploading'
         await delay(500)
-        pipelineStatus.value = 'success'
         const res = await axios.get('http://localhost:5000/api/mock_pipeline')
-        const data = res.data.data
-        musicXml.value = data.music_xml
+        const data = res.data.data || {}
+        applyPipelineResult(data, '/static/uploads/temp.jpg')
+        pipelineStatus.value = 'success'
     } catch(err) {
         pipelineStatus.value = 'error'
         errorMessage.value = err.message
     }
+}
+
+// 直接加载已落盘的 testpicture-1 结果，便于前端只做渲染检查
+const loadSavedTestPictureResult = async () => {
+  try {
+    pipelineStatus.value = 'uploading'
+    errorMessage.value = ''
+    const res = await axios.get('http://localhost:5000/static/uploads/testpicture-1.jpg_result.json', {
+      responseType: 'text',
+      transformResponse: [(value) => value]
+    })
+    const text = String(res.data || '').replace(/^\uFEFF/, '')
+    const data = JSON.parse(text)
+    applyPipelineResult(data, '/static/uploads/testpicture-1.jpg')
+    pipelineStatus.value = 'success'
+  } catch (error) {
+    pipelineStatus.value = 'error'
+    errorMessage.value = error.response?.data?.message || error.message || '加载预计算结果失败'
+  }
 }
 </script>
 
@@ -171,9 +202,14 @@ const reqMockData = async () => {
     <!-- 顶栏 -->
     <header class="bg-gray-900 text-white p-4 shadow-md flex justify-between items-center">
       <h1 class="text-xl font-bold tracking-wide">伯牙解谱系统 - MusicXML 端到端演示原型</h1>
-      <button @click="reqMockData" class="text-sm bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded transition-colors">
-        加载 Mock XML 并渲染
-      </button>
+      <div class="flex items-center gap-2">
+        <button @click="loadSavedTestPictureResult" class="text-sm bg-emerald-700 hover:bg-emerald-600 px-3 py-1 rounded transition-colors">
+          加载 testpicture-1 结果
+        </button>
+        <button @click="reqMockData" class="text-sm bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded transition-colors">
+          加载 Mock XML 并渲染
+        </button>
+      </div>
     </header>
 
     <main class="flex-1 flex flex-col md:flex-row overflow-hidden bg-gray-100 p-4 gap-4">
@@ -233,7 +269,7 @@ const reqMockData = async () => {
           </div>
           
           <div v-if="originalImageUrl" class="mt-2 text-center">
-             <button @click="() => { originalImageUrl = ''; previewImage = ''; selectedFile = null; pipelineStatus = 'idle'; musicXml = ''; yoloBoxes = []; }" class="text-sm text-gray-500 hover:text-gray-800 underline">
+             <button @click="() => { originalImageUrl = ''; previewImage = ''; selectedFile = null; pipelineStatus = 'idle'; musicXml = ''; scoreModel = null; yoloBoxes = []; }" class="text-sm text-gray-500 hover:text-gray-800 underline">
                重新上传
              </button>
           </div>
@@ -244,15 +280,20 @@ const reqMockData = async () => {
       <!-- 右侧翻译渲染区 -->
       <section class="w-full md:w-1/2 flex flex-col bg-white rounded-xl shadow border border-gray-200 overflow-hidden">
         <div class="bg-gray-50 border-b border-gray-200 p-3 font-semibold text-gray-700 flex justify-between items-center">
-          <span>翻译渲染区 (MusicXML Render)</span>
-          <span v-if="musicXml" class="text-xs font-normal text-green-600 bg-green-50 px-2 py-1 rounded border border-green-200">MusicXML 解析成功</span>
+          <span>翻译渲染区 (ScoreModel Render)</span>
+          <span v-if="scoreModel && scoreModel.noteCount > 0" class="text-xs font-normal text-green-600 bg-green-50 px-2 py-1 rounded border border-green-200">ScoreModel 解析成功</span>
         </div>
         
         <div class="p-4 flex-1 overflow-y-auto bg-amber-50/30">
-          <div v-if="musicXml">
-            <MusicXmlScoreRenderer :xml-data="musicXml" />
+          <div v-if="scoreModel && scoreModel.noteCount > 0">
+            <ScoreModelRenderer :score-data="scoreModel" />
             
             <details class="mt-8 text-xs text-gray-500">
+              <summary class="cursor-pointer hover:text-gray-700">查看生成的 ScoreModel 数据</summary>
+              <pre class="mt-2 p-3 bg-gray-100 rounded overflow-auto border border-gray-200">{{ scoreModel }}</pre>
+            </details>
+
+            <details v-if="musicXml" class="mt-3 text-xs text-gray-500">
               <summary class="cursor-pointer hover:text-gray-700">查看生成的 XML 数据</summary>
               <pre class="mt-2 p-3 bg-gray-100 rounded overflow-auto border border-gray-200">{{ musicXml }}</pre>
             </details>
