@@ -5,9 +5,10 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 
 from pipeline.cv_module import detect_components
-from pipeline.topology_module import build_topology
+from pipeline.topology_module import build_topology, build_jianzi_sequence
 from pipeline.llm_module import infer_pitch_duration
 from pipeline.musicxml_encoder import generate_musicxml
+from pipeline.score_model_transformer import transform_llm_result_to_score_model
 
 app = Flask(__name__)
 CORS(app)  # 允许跨域请求
@@ -64,9 +65,15 @@ def upload_file():
             
             # 2. 空间拓扑解析
             topology_json = build_topology(yolo_boxes)
+
+            # 2.1 减字序列化（右到左列序，供 LLM 使用的轻量结构）
+            jianzi_sequence = build_jianzi_sequence(topology_json)
             
             # 3. 大模型打谱推理 (音高与节奏)
-            llm_result = infer_pitch_duration(topology_json)
+            llm_result = infer_pitch_duration(jianzi_sequence)
+
+            # 3.1 统一前端渲染模型（JSON 规范化）
+            score_model = transform_llm_result_to_score_model(llm_result, strict=False)
             
             # 4. XML 编码层
             music_xml = generate_musicxml(llm_result)
@@ -83,7 +90,9 @@ def upload_file():
             json.dump({
                 "yolo_boxes": yolo_boxes,
                 "topology_json": topology_json,
+                "jianzi_sequence": jianzi_sequence,
                 "llm_result": llm_result,
+                "score_model": score_model,
                 "music_xml": music_xml
             }, f, ensure_ascii=False, indent=2)
 
@@ -93,7 +102,9 @@ def upload_file():
                 'original_image_url': f'/static/uploads/{filename}',
                 'yolo_boxes': yolo_boxes,
                 'topology_json': topology_json,
+                'jianzi_sequence': jianzi_sequence,
                 'llm_result': llm_result,
+                'score_model': score_model,
                 'music_xml': music_xml
             }
         })
@@ -120,6 +131,7 @@ def mock_pipeline():
         {"pitch": "5", "octave": "4", "duration": "2", "action": "托", "string": "六", "position": "八", "finger": "名"}
     ]
     
+    score_model = transform_llm_result_to_score_model(mock_llm_result, strict=False)
     music_xml = generate_musicxml(mock_llm_result)
 
     return jsonify({
@@ -132,7 +144,11 @@ def mock_pipeline():
         "topology_json": {
           "group_1": {"fingering": "勾", "finger": "大", "position": "九", "string": "一"}
         },
+        "jianzi_sequence": [
+          {"group_id": "group_1", "action": "勾", "finger": "大", "position": "九", "string": "一"}
+        ],
         "llm_result": mock_llm_result,
+        "score_model": score_model,
         "music_xml": music_xml
       }
     })
