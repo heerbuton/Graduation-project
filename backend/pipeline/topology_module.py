@@ -521,9 +521,77 @@ def _build_clusters(detections: List[Dict[str, Any]]) -> List[List[Dict[str, Any
         root = find(idx)
         grouped.setdefault(root, []).append(det)
 
-    clusters = list(grouped.values())
-    clusters.sort(key=lambda items: (min(d["cx"] for d in items), min(d["cy"] for d in items)))
-    return clusters
+    return list(grouped.values())
+
+
+def _order_clusters_right_to_left_by_columns(clusters: List[List[Dict[str, Any]]]) -> List[List[Dict[str, Any]]]:
+    """
+    对减字组做固定序排序：
+    1) 按“列”从右到左
+    2) 每列内按从上到下
+    """
+    if len(clusters) <= 1:
+        return clusters
+
+    items: List[Dict[str, Any]] = []
+    for cluster in clusters:
+        bbox = _cluster_bbox(cluster)
+        cx = (bbox[0] + bbox[2]) / 2.0
+        cy = (bbox[1] + bbox[3]) / 2.0
+        items.append(
+            {
+                "cluster": cluster,
+                "bbox": bbox,
+                "cx": cx,
+                "cy": cy,
+                "w": bbox[2] - bbox[0],
+            }
+        )
+
+    median_group_width = _median([item["w"] for item in items])
+    column_x_gap_threshold = max(
+        _env_float("TOPOLOGY_COLUMN_X_GAP_MIN", 18.0),
+        median_group_width * _env_float("TOPOLOGY_COLUMN_X_GAP_FACTOR", 0.55),
+    )
+    column_x_gap_threshold = min(
+        column_x_gap_threshold,
+        _env_float("TOPOLOGY_COLUMN_X_GAP_MAX", 36.0),
+    )
+
+    sorted_by_x = sorted(items, key=lambda item: item["cx"], reverse=True)
+    columns: List[Dict[str, Any]] = []
+
+    for item in sorted_by_x:
+        best_index: Optional[int] = None
+        best_distance: Optional[float] = None
+        for idx, column in enumerate(columns):
+            distance = abs(item["cx"] - column["mean_cx"])
+            if distance > column_x_gap_threshold:
+                continue
+            if best_distance is None or distance < best_distance:
+                best_distance = distance
+                best_index = idx
+
+        if best_index is None:
+            columns.append(
+                {
+                    "mean_cx": item["cx"],
+                    "items": [item],
+                }
+            )
+            continue
+
+        columns[best_index]["items"].append(item)
+        column_items = columns[best_index]["items"]
+        columns[best_index]["mean_cx"] = sum(node["cx"] for node in column_items) / len(column_items)
+
+    columns.sort(key=lambda column: column["mean_cx"], reverse=True)
+
+    ordered: List[List[Dict[str, Any]]] = []
+    for column in columns:
+        column_items = sorted(column["items"], key=lambda item: (item["cy"], -item["cx"]))
+        ordered.extend(item["cluster"] for item in column_items)
+    return ordered
 
 
 def _pick_highest_conf_label(components: List[Dict[str, Any]], role: str) -> str:
@@ -684,7 +752,7 @@ def build_topology(yolo_boxes: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]
     - 乐章起止符号(64/65)必须独立成组
     """
     detections = _prepare_detections(yolo_boxes)
-    clusters = _build_clusters(detections)
+    clusters = _order_clusters_right_to_left_by_columns(_build_clusters(detections))
 
     parsed: Dict[str, Dict[str, Any]] = {}
     for idx, cluster in enumerate(clusters, start=1):
@@ -692,8 +760,48 @@ def build_topology(yolo_boxes: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]
         core_fields = _extract_group_fields(components)
         parsed[f"group_{idx}"] = {
             **core_fields,
+            "sequence_index": idx,
             "group_bbox": _cluster_bbox(cluster),
             "components": [_component_payload(item) for item in components],
         }
 
     return parsed
+
+
+def build_jianzi_sequence(topology_json: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    生成传递给 LLM 的轻量减字序列（无 bbox/conf/components）。
+    顺序直接沿用 build_topology 的 group_1..group_n（右->左列序，列内上->下）。
+    """
+    if not isinstance(topology_json, dict):
+        return []
+
+    sequence: List[Dict[str, Any]] = []
+    group_items = sorted(
+        topology_json.items(),
+        key=lambda item: _safe_int(str(item[0]).split("_")[-1], 10**9),
+    )
+    for group_id, payload in group_items:
+        if not isinstance(payload, dict):
+            continue
+        sequence.append(
+            {
+                "group_id": str(group_id),
+                "sequence_index": _safe_int(payload.get("sequence_index"), 0),
+                "is_marker": bool(payload.get("is_marker", False)),
+                "is_section_start": bool(payload.get("is_section_start", False)),
+                "is_section_end": bool(payload.get("is_section_end", False)),
+                "marker_type": str(payload.get("marker_type", "")).strip(),
+                "right_fingering": str(payload.get("right_fingering", "")).strip(),
+                "left_fingering": str(payload.get("left_fingering", "")).strip(),
+                "left_finger": str(payload.get("left_finger", "")).strip(),
+                "hui": str(payload.get("hui", "")).strip(),
+                "xian": str(payload.get("xian", "")).strip(),
+                # 兼容字段：下游如果仍按旧结构取值也能工作
+                "action": str(payload.get("fingering", "")).strip(),
+                "finger": str(payload.get("finger", "")).strip(),
+                "position": str(payload.get("position", "")).strip(),
+                "string": str(payload.get("string", "")).strip(),
+            }
+        )
+    return sequence
