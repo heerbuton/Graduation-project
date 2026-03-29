@@ -120,7 +120,10 @@ const applyPipelineResult = (data, fallbackImageUrl = '') => {
 }
 
 const uploadAndProcess = async () => {
-  if (!selectedFile.value) return
+  if (!selectedFile.value) {
+    errorMessage.value = '请先上传图片后再开始打谱。'
+    return
+  }
   
   pipelineStatus.value = 'uploading'
   errorMessage.value = ''
@@ -162,21 +165,6 @@ const uploadAndProcess = async () => {
   }
 }
 
-// 获取 Mock 数据进行测试
-const reqMockData = async () => {
-    try {
-        pipelineStatus.value = 'uploading'
-        await delay(500)
-        const res = await axios.get('http://localhost:5000/api/mock_pipeline')
-        const data = res.data.data || {}
-        applyPipelineResult(data, '/static/uploads/temp.jpg')
-        pipelineStatus.value = 'success'
-    } catch(err) {
-        pipelineStatus.value = 'error'
-        errorMessage.value = err.message
-    }
-}
-
 // 直接加载已落盘的 testpicture-1 结果，便于前端只做渲染检查
 const loadSavedTestPictureResult = async () => {
   try {
@@ -206,8 +194,12 @@ const loadSavedTestPictureResult = async () => {
         <button @click="loadSavedTestPictureResult" class="text-sm bg-emerald-700 hover:bg-emerald-600 px-3 py-1 rounded transition-colors">
           加载 testpicture-1 结果
         </button>
-        <button @click="reqMockData" class="text-sm bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded transition-colors">
-          加载 Mock XML 并渲染
+        <button
+          @click="uploadAndProcess"
+          :disabled="!selectedFile || (pipelineStatus !== 'idle' && pipelineStatus !== 'error')"
+          class="text-sm bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed"
+        >
+          开始打谱
         </button>
       </div>
     </header>
@@ -241,7 +233,7 @@ const loadSavedTestPictureResult = async () => {
             <button @click="uploadAndProcess" 
                     :disabled="pipelineStatus !== 'idle' && pipelineStatus !== 'error'"
                     class="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded shadow-sm disabled:bg-blue-400 transition-colors">
-              开始端到端解析
+              开始打谱
             </button>
           </div>
 

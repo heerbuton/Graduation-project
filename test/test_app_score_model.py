@@ -66,6 +66,36 @@ class AppScoreModelTests(unittest.TestCase):
         self.assertEqual(payload["status"], "success")
         self.assertIn("score_model", payload["data"])
 
+    def test_run_testpicture_pipeline_should_include_score_model(self):
+        fake_yolo = [{"class": "大", "bbox": [1, 1, 5, 5]}]
+        fake_topology = {"group_1": {"fingering": "勾", "finger": "大", "position": "九", "string": "一"}}
+        fake_sequence = [{"group_id": "group_1", "action": "勾", "finger": "大", "position": "九", "string": "一"}]
+        fake_llm_result = [
+            {
+                "pitch": "1",
+                "octave": "4",
+                "duration": "4",
+                "action": "勾",
+                "string": "一",
+                "position": "九",
+                "finger": "大",
+            }
+        ]
+
+        with patch("app.detect_components", return_value=fake_yolo), patch(
+            "app.build_topology", return_value=fake_topology
+        ), patch("app.build_jianzi_sequence", return_value=fake_sequence), patch(
+            "app.infer_pitch_duration", return_value=fake_llm_result
+        ), patch(
+            "app.generate_musicxml", return_value="<score/>"
+        ):
+            response = self.client.get("/api/run_testpicture_pipeline")
+
+        payload = response.get_json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(payload["status"], "success")
+        self.assertIn("score_model", payload["data"])
+
 
 if __name__ == "__main__":
     unittest.main()
