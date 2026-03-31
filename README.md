@@ -86,7 +86,7 @@ f:/AIcharacter/End/
 
 ## 本地运行
 
-### 1. 启动后端（推荐使用你当前环境）
+### 1. 启动后端（推荐使用当前环境下的 Python 解释器）
 
 ```powershell
 cd f:/AIcharacter/End/backend
@@ -94,34 +94,37 @@ F:\anaconda\envs\pytorch\python.exe -m pip install -r requirements.txt
 F:\anaconda\envs\pytorch\python.exe app.py
 ```
 
-后端默认地址：`http://127.0.0.1:5000`
+后端 API 与静态资源服务默认运行在：`http://127.0.0.1:5000`
 
-### 2. 启动前端
+### 2. 启动前端（推荐绑定 IPv4 物理网卡以防止连接拒绝）
+
+由于最新的 Node.js 策略有时会将 localhost 强制路由为 IPv6(::1)，建议直接将 host 显式绑定在 127.0.0.1 上：
 
 ```powershell
 cd f:/AIcharacter/End/frontend
 npm install
-npm run dev -- --host 0.0.0.0 --port 5173
+npm run dev -- --host 127.0.0.1 --port 5173
+# 如果脚本包装异常，也可直接执行: 
+# .\node_modules\.bin\vite.cmd --host 127.0.0.1 --port 5173
 ```
 
-前端访问地址：`http://127.0.0.1:5173/index.html`
+前端网页界面访问地址：**`http://127.0.0.1:5173/`**
 
 ---
 
-## 前端查看方式
+## 体验与查看方式（基于最新 Accordion 手风琴卡片 UI）
 
-### 方式 A：直接看 `testpicture-1` 结果（推荐）
+### 方式 A：无缝体验海量数据的流水线展开（强烈推荐）
 
-前端顶栏点击：`加载 testpicture-1 结果`  
-会读取：`backend/static/uploads/testpicture-1.jpg_result.json`
+当前端网页加载完成后：
+1. 直接点击顶栏的 **`Demo: 加载测试图`** 按钮。
+2. 左侧控制台将调取内部已恢复好且跑通的 `testpicture-1.jpg_result.json`（内含 300 多个解析框）。
+3. **视觉特征抽取 -> 拓扑结构序列化 -> AI 推理 -> XML 编码** 这四大核心步骤对应的控制卡片会自动“像手风琴一样”随着进度节奏依次点亮、展开、并最终渲染古琴电子版乐谱，效果极其丝滑爽快。
 
-### 方式 B：Mock 联调
+### 方式 B：真实上传端到端解析
 
-前端顶栏点击：`加载 Mock XML 并渲染`
-
-### 方式 C：上传图片走全链路
-
-点击上传并执行 `开始端到端解析`
+1. 拖拽或点击上传本地源图片。
+2. 点击 **`启动 AI 打谱引擎`**，系统会将图片传回本地的 Flask 引擎实时执行深度学习推理，然后动态推演状态机。
 
 ---
 
