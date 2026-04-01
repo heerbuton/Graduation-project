@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import cv2
 import numpy as np
 from flask import Flask, request, jsonify, send_from_directory
@@ -66,6 +67,60 @@ def _run_pipeline_and_save_result(save_path: str):
         json.dump(result_payload, f, ensure_ascii=False, indent=2)
 
     return result_payload
+
+
+def _group_sort_key(group_id: str):
+    match = re.search(r"(\d+)", str(group_id))
+    if not match:
+        return (10**9, str(group_id))
+    return (int(match.group(1)), str(group_id))
+
+
+def _sanitize_topology_for_reflow(raw_topology):
+    """
+    清洗前端回传的 topology_json：
+    - 过滤非对象组与 __deleted 软删除组
+    - 统一关键字段，兼容新旧字段名
+    - 重排 sequence_index，确保后续链路顺序稳定
+    """
+    if not isinstance(raw_topology, dict):
+        return {}
+
+    sanitized = {}
+    sequence_index = 1
+
+    for group_id, payload in sorted(raw_topology.items(), key=lambda item: _group_sort_key(item[0])):
+        if not isinstance(payload, dict):
+            continue
+        if bool(payload.get("__deleted")):
+            continue
+
+        group = dict(payload)
+        group.pop("__deleted", None)
+        group["sequence_index"] = sequence_index
+        sequence_index += 1
+
+        right_fingering = str(group.get("right_fingering") or "").strip()
+        left_fingering = str(group.get("left_fingering") or "").strip()
+        left_finger = str(group.get("left_finger") or group.get("finger") or "").strip()
+        hui = str(group.get("hui") or group.get("position") or "").strip()
+        xian = str(group.get("xian") or group.get("string") or group.get("xian_digit") or "").strip()
+
+        group["right_fingering"] = right_fingering
+        group["left_fingering"] = left_fingering
+        group["left_finger"] = left_finger
+        group["hui"] = hui
+        group["xian"] = xian
+
+        # 兼容旧下游字段
+        group["fingering"] = str(group.get("fingering") or right_fingering or left_fingering or "").strip()
+        group["finger"] = str(group.get("finger") or left_finger or "").strip()
+        group["position"] = str(group.get("position") or hui or "").strip()
+        group["string"] = str(group.get("string") or xian or "").strip()
+
+        sanitized[str(group_id)] = group
+
+    return sanitized
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
@@ -150,6 +205,45 @@ def run_testpicture_pipeline():
         'data': {
             'original_image_url': f'/static/uploads/{filename}',
             **result_payload
+        }
+    })
+
+
+@app.route('/api/reflow_from_topology', methods=['POST'])
+def reflow_from_topology():
+    """
+    基于前端修正后的 topology_json，仅重跑后续链路：
+    topology -> jianzi_sequence -> llm -> score_model -> musicxml
+    """
+    body = request.get_json(silent=True) or {}
+    topology_payload = body.get("topology_json")
+    sanitized_topology = _sanitize_topology_for_reflow(topology_payload)
+
+    if not sanitized_topology:
+        return jsonify({
+            'status': 'error',
+            'message': 'topology_json 为空，或全部被标记删除。请至少保留一个有效减字组。'
+        }), 400
+
+    try:
+        jianzi_sequence = build_jianzi_sequence(sanitized_topology)
+        llm_result = infer_pitch_duration(sanitized_topology)
+        score_model = transform_llm_result_to_score_model(llm_result, strict=False)
+        music_xml = generate_musicxml(llm_result)
+    except Exception as exc:
+        return jsonify({
+            'status': 'error',
+            'message': f'Reflow failed: {exc}'
+        }), 500
+
+    return jsonify({
+        'status': 'success',
+        'data': {
+            'topology_json': sanitized_topology,
+            'jianzi_sequence': jianzi_sequence,
+            'llm_result': llm_result,
+            'score_model': score_model,
+            'music_xml': music_xml
         }
     })
 

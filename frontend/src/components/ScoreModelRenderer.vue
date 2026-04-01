@@ -8,8 +8,6 @@ const props = defineProps({
   },
 });
 
-const MEASURES_PER_SYSTEM = 3;
-
 const displayMeasures = computed(() => {
   const measures = Array.isArray(props.scoreData?.measures) ? props.scoreData.measures : [];
   return measures.map((measure, mIndex) => {
@@ -36,20 +34,6 @@ const displayMeasures = computed(() => {
     };
   });
 });
-
-const systems = computed(() => {
-  const result = [];
-  const measures = displayMeasures.value;
-
-  for (let i = 0; i < measures.length; i += MEASURES_PER_SYSTEM) {
-    const chunk = measures.slice(i, i + MEASURES_PER_SYSTEM);
-    if (chunk.length > 0) {
-      result.push(chunk);
-    }
-  }
-
-  return result;
-});
 </script>
 
 <template>
@@ -59,13 +43,14 @@ const systems = computed(() => {
     </h3>
 
     <div class="guqin-score-container p-6 bg-[#fafaf8] rounded-xl shadow-inner min-h-[400px]" v-if="displayMeasures.length > 0">
-      <div v-for="(system, sIndex) in systems" :key="`sys_${sIndex}`" class="system-row flex items-start flex-nowrap mb-8 last:mb-0">
-        <div v-for="(measure, mIndex) in system" :key="measure.id" class="flex items-start">
+      <div class="flex flex-wrap items-start">
+        <div v-for="(measure, mIndex) in displayMeasures" :key="measure.id" class="flex items-start mb-8">
           <div
             v-for="(note, noteIndex) in measure.notes"
             :key="note.id || `${measure.id}_${noteIndex}`"
-            class="flex flex-col items-center w-12 mb-6 group cursor-default"
+            class="flex flex-col items-center w-12 group cursor-default"
           >
+            <!-- 简谱部分 -->
             <div
               class="jianpu-section w-full text-center h-12 flex flex-col justify-end items-center mb-3 relative"
             >
@@ -84,6 +69,7 @@ const systems = computed(() => {
               </div>
             </div>
 
+            <!-- 减字谱部分 -->
             <div
               v-if="!note.isDash"
               class="lyrics-section flex flex-col w-full items-center text-[0.9rem] font-serif text-gray-800 tracking-widest gap-2 group-hover:bg-emerald-50/60 rounded py-1 transition-colors"
@@ -95,9 +81,12 @@ const systems = computed(() => {
               <div class="h-5 flex items-center justify-center">{{ note?.guqin?.position || " " }}</div>
               <div class="h-5 flex items-center justify-center">{{ note?.guqin?.finger || " " }}</div>
             </div>
+            
             <div v-else class="lyrics-section flex flex-col w-full items-center h-[116px]"></div>
           </div>
-          <div v-if="mIndex < system.length - 1" class="w-px h-[160px] bg-gray-600 mx-3 mt-4"></div>
+          
+          <!-- 小节线 (除了最后一小节外都显示) -->
+          <div v-if="mIndex < displayMeasures.length - 1" class="w-px h-[160px] bg-gray-600 mx-4 mt-4"></div>
         </div>
       </div>
     </div>
