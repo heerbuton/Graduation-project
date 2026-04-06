@@ -1,0 +1,12 @@
+{
+  "source_file": "F:\\AIcharacter\\End\\test\\evidence_outputs\\upload_full_endpoint_raw_runs_2026-04-06.json",
+  "n": 3,
+  "min": 61.98,
+  "avg": 63.92,
+  "max": 66.025,
+  "raw": [
+    66.025,
+    61.98,
+    63.755
+  ]
+}

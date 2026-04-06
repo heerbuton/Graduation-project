@@ -1,0 +1,6 @@
+校验失败原因：
+字段 pitch 非法: 9
+输入 groups：
+[{"group_id":"group_1","right_fingering":"","left_fingering":"","left_finger":"","hui":"一","xian":"","action":"","finger":"","position":"一","string":"一"},{"group_id":"group_2","right_fingering":"历","left_fingering":"","left_finger":"","hui":"","xian":"六","action":"历","finger":"","position":"","string":"六"},{"group_id":"group_3","right_fingering":"","left_fingering":"","left_finger":"","hui":"五","xian":"","action":"","finger":"","position":"五","string":"五"}]
+待修复 draft_notes：
+[{"group_id":"group_1","pitch":"9","octave":"7","duration":"32","action":"","string":"一","position":"一","finger":"","new_measure":false}]

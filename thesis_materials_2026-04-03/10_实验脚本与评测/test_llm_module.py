@@ -262,40 +262,6 @@ class LlmModuleTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 llm_module.infer_pitch_duration(_sample_topology())
 
-    def test_prompt_should_include_tone_table_hints(self):
-        response_payload = {
-            "choices": [
-                {
-                    "message": {
-                        "content": _message_content(
-                            {
-                                "group_id": "group_1",
-                                "pitch": "1",
-                                "octave": "4",
-                                "duration": "4",
-                                "action": "勾",
-                                "string": "一",
-                                "position": "九",
-                                "finger": "大",
-                                "new_measure": False,
-                            }
-                        )
-                    }
-                }
-            ]
-        }
-
-        with patch("pipeline.llm_module.requests.post", return_value=_FakeResponse(200, response_payload)) as mock_post:
-            llm_module.infer_pitch_duration(_sample_topology())
-
-        prompt_text = mock_post.call_args.kwargs["json"]["messages"][1]["content"]
-        parts = prompt_text.split("\n", 1)
-        groups = json.loads(parts[1]) if len(parts) > 1 else []
-        self.assertTrue(groups[0].get("tone_table_hit"))
-        self.assertIn(groups[0].get("tone_table_pitch"), {"1", "2", "3", "4", "5", "6", "7"})
-        self.assertIn(groups[0].get("tone_table_octave"), {"3", "4", "5"})
-        self.assertTrue(groups[0].get("tone_table_ref"))
-
 
 if __name__ == "__main__":
     unittest.main()

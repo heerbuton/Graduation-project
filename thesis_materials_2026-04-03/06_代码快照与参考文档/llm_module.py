@@ -1,7 +1,6 @@
 import json
 import logging
 import re
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -18,150 +17,6 @@ LLM_ENABLE_THINKING = False
 VALID_PITCHES = {"1", "2", "3", "4", "5", "6", "7"}
 VALID_OCTAVES = {"3", "4", "5"}
 VALID_DURATIONS = {"2", "4", "8", "16"}
-
-QIN_TONE_TABLE_PATH = Path(__file__).resolve().parent / "qin_tone_table.json"
-CN_DIGIT_TO_ARABIC = {
-    "一": "1",
-    "二": "2",
-    "三": "3",
-    "四": "4",
-    "五": "5",
-    "六": "6",
-    "七": "7",
-    "八": "8",
-    "九": "9",
-}
-ARABIC_TO_CN = {
-    "0": "零",
-    "1": "一",
-    "2": "二",
-    "3": "三",
-    "4": "四",
-    "5": "五",
-    "6": "六",
-    "7": "七",
-    "8": "八",
-    "9": "九",
-}
-
-
-def _digits_to_hui_cn(text: str) -> str:
-    if not text or any(ch not in ARABIC_TO_CN for ch in text):
-        return ""
-    if text == "10":
-        return "十"
-    if text == "11":
-        return "十一"
-    if text == "12":
-        return "十二"
-    if text == "13":
-        return "十三"
-    return "".join(ARABIC_TO_CN[ch] for ch in text if ch != "0")
-
-
-def _normalize_xian_token(value: Any) -> str:
-    text = str(value or "").strip().replace(" ", "").replace("弦", "")
-    if not text:
-        return ""
-    if text in CN_DIGIT_TO_ARABIC:
-        return CN_DIGIT_TO_ARABIC[text]
-
-    match = re.search(r"[1-7]", text)
-    if match:
-        return match.group(0)
-
-    for ch in text:
-        if ch in CN_DIGIT_TO_ARABIC and CN_DIGIT_TO_ARABIC[ch] in VALID_PITCHES:
-            return CN_DIGIT_TO_ARABIC[ch]
-    return ""
-
-
-def _normalize_hui_token(value: Any) -> str:
-    text = str(value or "").strip().replace(" ", "")
-    text = (
-        text.replace("徽位", "")
-        .replace("弦音", "")
-        .replace("徽", "")
-        .replace("位", "")
-        .replace("点", ".")
-        .replace("．", ".")
-    )
-    if not text or text in {"空", "散", "散音", "空音", "空弦", "空弦音"}:
-        return "空弦"
-
-    split_match = re.fullmatch(r"(\d+)[\.\-_/](\d)", text)
-    if split_match:
-        left_cn = _digits_to_hui_cn(split_match.group(1))
-        right_cn = _digits_to_hui_cn(split_match.group(2))
-        if left_cn and right_cn:
-            return f"{left_cn}{right_cn}"
-
-    if re.fullmatch(r"\d+", text):
-        normalized = _digits_to_hui_cn(text)
-        if normalized:
-            return normalized
-
-    def _digit_replacer(match: re.Match) -> str:
-        converted = _digits_to_hui_cn(match.group(0))
-        return converted or match.group(0)
-
-    return re.sub(r"\d+", _digit_replacer, text)
-
-
-def _load_qin_tone_table_entries() -> List[Dict[str, str]]:
-    if not QIN_TONE_TABLE_PATH.exists():
-        LOGGER.warning("未找到音位表 JSON：%s", QIN_TONE_TABLE_PATH)
-        return []
-
-    try:
-        parsed = json.loads(QIN_TONE_TABLE_PATH.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        LOGGER.warning("读取音位表 JSON 失败：%s", exc)
-        return []
-
-    entries: List[Dict[str, str]] = []
-    for item in parsed if isinstance(parsed, list) else []:
-        if not isinstance(item, dict):
-            continue
-        xian = _normalize_xian_token(item.get("xian"))
-        hui = _normalize_hui_token(item.get("hui"))
-        pitch = str(item.get("pitch", "")).strip()
-        octave = str(item.get("octave", "")).strip()
-        source_label = str(item.get("source_label", "")).strip()
-        if not xian or not hui:
-            continue
-        if pitch not in VALID_PITCHES or octave not in VALID_OCTAVES:
-            continue
-        entries.append(
-            {
-                "xian": xian,
-                "hui": hui,
-                "pitch": pitch,
-                "octave": octave,
-                "source_label": source_label,
-            }
-        )
-    return entries
-
-
-def _build_qin_tone_table_index(entries: List[Dict[str, str]]) -> Dict[tuple, Dict[str, str]]:
-    index: Dict[tuple, Dict[str, str]] = {}
-    for entry in entries:
-        key = (entry["xian"], entry["hui"])
-        index[key] = entry
-    return index
-
-
-QIN_TONE_TABLE_ENTRIES = _load_qin_tone_table_entries()
-QIN_TONE_TABLE_INDEX = _build_qin_tone_table_index(QIN_TONE_TABLE_ENTRIES)
-
-
-def _lookup_qin_tone_hint(xian_value: Any, hui_value: Any) -> Optional[Dict[str, str]]:
-    xian = _normalize_xian_token(xian_value)
-    if not xian:
-        return None
-    hui = _normalize_hui_token(hui_value)
-    return QIN_TONE_TABLE_INDEX.get((xian, hui))
 
 
 def _sort_group_key(group_id: str) -> tuple:
@@ -236,55 +91,45 @@ def _normalize_topology(topology_json: Any) -> List[Dict[str, Any]]:
     return normalized
 
 
-def _compact_groups_for_prompt(groups: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    compact: List[Dict[str, Any]] = []
+def _compact_groups_for_prompt(groups: List[Dict[str, Any]]) -> List[Dict[str, str]]:
+    compact: List[Dict[str, str]] = []
     for item in groups:
-        compact_item = {
-            "group_id": str(item.get("group_id", "")).strip(),
-            "right_fingering": str(item.get("right_fingering", "")).strip(),
-            "left_fingering": str(item.get("left_fingering", "")).strip(),
-            "left_finger": str(item.get("left_finger", "")).strip(),
-            "hui": str(item.get("hui", "")).strip(),
-            "xian": str(item.get("xian", "")).strip(),
-            # 兼容字段，便于模型直接抄写输出
-            "action": str(item.get("action", "")).strip(),
-            "finger": str(item.get("finger", "")).strip(),
-            "position": str(item.get("position", "")).strip(),
-            "string": str(item.get("string", "")).strip(),
-        }
-        tone_hint = _lookup_qin_tone_hint(compact_item["xian"], compact_item["hui"])
-        if tone_hint:
-            compact_item["tone_table_hit"] = True
-            compact_item["tone_table_pitch"] = tone_hint["pitch"]
-            compact_item["tone_table_octave"] = tone_hint["octave"]
-            compact_item["tone_table_ref"] = f"{tone_hint['xian']}弦{tone_hint['hui']}->{tone_hint['source_label']}"
-        else:
-            compact_item["tone_table_hit"] = False
-        compact.append(compact_item)
+        compact.append(
+            {
+                "group_id": str(item.get("group_id", "")).strip(),
+                "right_fingering": str(item.get("right_fingering", "")).strip(),
+                "left_fingering": str(item.get("left_fingering", "")).strip(),
+                "left_finger": str(item.get("left_finger", "")).strip(),
+                "hui": str(item.get("hui", "")).strip(),
+                "xian": str(item.get("xian", "")).strip(),
+                # 兼容字段，便于模型直接抄写输出
+                "action": str(item.get("action", "")).strip(),
+                "finger": str(item.get("finger", "")).strip(),
+                "position": str(item.get("position", "")).strip(),
+                "string": str(item.get("string", "")).strip(),
+            }
+        )
     return compact
 
 
 def _build_messages(groups: List[Dict[str, Any]]) -> List[Dict[str, str]]:
     compact_groups = _compact_groups_for_prompt(groups)
     system_prompt = (
-        "你是古琴减字谱正调打谱专家。\n"
-        "必须基于完整序列上下文进行整体打谱，禁止逐 group 独立机械判断。\n"
-        "输出必须是 JSON 对象且仅包含 notes 数组。\n"
-        "notes 每个对象必须包含字段：group_id,pitch,octave,duration,action,string,position,finger,new_measure。\n"
-        "必须严格按输入 group 顺序一一对应。\n"
-        "硬约束：pitch 只能是字符串 1-7；octave 只能为 3/4/5；duration 只能为 2/4/8/16；new_measure 必须为布尔值。\n"
-        "action/string/position/finger 必须原样复制输入对应 group。\n"
-        "音位表规则（来自音位表.xlsx）：\n"
-        "1. 输入 group 可能带有 tone_table_hit/tone_table_pitch/tone_table_octave/tone_table_ref。\n"
-        "2. 当 tone_table_hit=true 时，说明该组弦序+徽序已命中音位表，必须优先采用 tone_table_pitch + tone_table_octave。\n"
-        "3. 只有在上下文出现明显强冲突时才允许调整，但应尽量保持音位表结果与同句一致。\n"
-        "古琴打谱规则：\n"
-        "1. 先全局判断调式与句法，再逐组给出音高和时值；\n"
-        "2. 相同或高度相似的指法-弦位组合在相近语境下应保持一致；\n"
-        "3. xian/hui 及左右手指法是音高判断核心依据，缺失字段时可参考前后组延续；\n"
-        "4. 时值需遵循乐句连贯与节奏平衡，避免无依据跳变；\n"
-        "5. new_measure 必须依据整段节奏结构标注，不可随意插入。\n"
-        "若无法确定：pitch 用 1，octave 用 4，duration 用 4。\n"
+        "你是古琴减字谱正调打谱专家。必须基于完整序列上下文进行整体打谱，禁止逐 group 独立机械判断。"
+        "输出必须是 JSON 对象且仅包含 notes 数组。"
+        "notes 每个对象必须包含字段："
+        "group_id,pitch,octave,duration,action,string,position,finger,new_measure。"
+        "必须严格按输入 group 顺序一一对应。"
+        "硬约束：pitch 只能是字符串 1-7；"
+        "octave 只能为 3/4/5；duration 只能为 2/4/8/16；new_measure 必须为布尔值。"
+        "action/string/position/finger 必须原样复制输入对应 group。"
+        "古琴打谱规则："
+        "先全局判断调式与句法，再逐组给出音高和时值；"
+        "相同或高度相似的指法-弦位组合在相近语境下应保持一致；"
+        "xian/hui 及左右手指法是音高判断核心依据，缺失字段时可参考前后组延续；"
+        "时值需遵循乐句连贯与节奏平衡，避免无依据跳变；"
+        "new_measure 必须依据整段节奏结构标注，不可随意插入。"
+        "若无法确定：pitch 用 1，octave 用 4，duration 用 4。"
         "不要输出解释文字、注释或 Markdown。"
     )
     user_prompt = (
@@ -370,7 +215,6 @@ def _build_repair_messages(
         "任务：修复 draft_notes 中不合法字段，输出合法 JSON 对象 {\"notes\": [...]}。"
         "必须保持 notes 顺序与 groups 完全一致，且 group_id 一一对应。"
         "pitch 只能为字符串 1-7；octave 只能为 3/4/5；duration 只能为 2/4/8/16；new_measure 必须为布尔。"
-        "若 group 中 tone_table_hit=true，则 pitch/octave 必须优先采用 tone_table_pitch/tone_table_octave。"
         "action/string/position/finger 必须与对应输入 group 保持一致，不得翻译改写。"
         "若无法修复：pitch=1，octave=4，duration=4。"
         "不要输出解释、注释或 Markdown。"

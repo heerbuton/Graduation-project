@@ -69,63 +69,6 @@ def _run_pipeline_and_save_result(save_path: str):
     return result_payload
 
 
-def _run_step1_and_save_result(save_path: str):
-    """
-    执行 step1（识别+聚合）并落盘，供前端先做可视化修正。
-    """
-    yolo_boxes = detect_components(save_path)
-    topology_json = build_topology(yolo_boxes)
-    jianzi_sequence = build_jianzi_sequence(topology_json)
-
-    result_payload = {
-        "yolo_boxes": yolo_boxes,
-        "topology_json": topology_json,
-        "jianzi_sequence": jianzi_sequence,
-        "llm_result": [],
-        "score_model": transform_llm_result_to_score_model([], strict=False),
-        "music_xml": "",
-    }
-
-    result_json_path = save_path + "_result_step1.json"
-    with open(result_json_path, 'w', encoding='utf-8-sig') as f:
-        json.dump(result_payload, f, ensure_ascii=False, indent=2)
-
-    return result_payload
-
-
-def _sanitize_llm_notes_for_render(raw_llm_result):
-    """
-    清洗前端修正后的 llm_result，确保渲染阶段字段稳定。
-    """
-    if not isinstance(raw_llm_result, list):
-        return []
-
-    valid_pitch = {"1", "2", "3", "4", "5", "6", "7"}
-    valid_octave = {"1", "2", "3", "4", "5", "6", "7"}
-    valid_duration = {"1", "2", "4", "8", "16", "32"}
-
-    sanitized = []
-    for item in raw_llm_result:
-        if not isinstance(item, dict):
-            continue
-        note = dict(item)
-
-        pitch = str(note.get("pitch", "1")).strip()
-        octave = str(note.get("octave", "4")).strip()
-        duration = str(note.get("duration", "4")).strip()
-
-        note["pitch"] = pitch if pitch in valid_pitch else "1"
-        note["octave"] = octave if octave in valid_octave else "4"
-        note["duration"] = duration if duration in valid_duration else "4"
-
-        if "new_measure" in note:
-            note["new_measure"] = bool(note.get("new_measure"))
-
-        sanitized.append(note)
-
-    return sanitized
-
-
 def _group_sort_key(group_id: str):
     match = re.search(r"(\d+)", str(group_id))
     if not match:
@@ -193,10 +136,6 @@ def upload_file():
         return jsonify({'status': 'error', 'message': 'No selected file'}), 400
 
     if file:
-        run_mode = str(request.form.get("run_mode", "step1")).strip().lower()
-        if run_mode not in {"step1", "full"}:
-            run_mode = "step1"
-
         filename = file.filename
         save_path = os.path.join(UPLOAD_FOLDER, filename)
         
@@ -212,10 +151,7 @@ def upload_file():
             return jsonify({'status': 'error', 'message': 'Failed to save image'}), 500
 
         try:
-            if run_mode == "full":
-                result_payload = _run_pipeline_and_save_result(save_path)
-            else:
-                result_payload = _run_step1_and_save_result(save_path)
+            result_payload = _run_pipeline_and_save_result(save_path)
         except Exception as exc:
             return jsonify({
                 'status': 'error',
@@ -225,7 +161,6 @@ def upload_file():
         return jsonify({
             'status': 'success',
             'data': {
-                'run_mode': run_mode,
                 'original_image_url': f'/static/uploads/{filename}',
                 **result_payload
             }
@@ -354,40 +289,6 @@ def mock_pipeline():
         "score_model": score_model,
         "music_xml": music_xml
       }
-    })
-
-
-@app.route('/api/render_from_llm_result', methods=['POST'])
-def render_from_llm_result():
-    """
-    基于前端修正后的 llm_result 重新生成 score_model 与 music_xml。
-    """
-    body = request.get_json(silent=True) or {}
-    llm_payload = body.get("llm_result")
-    sanitized_llm = _sanitize_llm_notes_for_render(llm_payload)
-
-    if not sanitized_llm:
-        return jsonify({
-            'status': 'error',
-            'message': 'llm_result 为空或格式非法。'
-        }), 400
-
-    try:
-        score_model = transform_llm_result_to_score_model(sanitized_llm, strict=False)
-        music_xml = generate_musicxml(sanitized_llm)
-    except Exception as exc:
-        return jsonify({
-            'status': 'error',
-            'message': f'Render from llm_result failed: {exc}'
-        }), 500
-
-    return jsonify({
-        'status': 'success',
-        'data': {
-            'llm_result': sanitized_llm,
-            'score_model': score_model,
-            'music_xml': music_xml
-        }
     })
 
 if __name__ == '__main__':

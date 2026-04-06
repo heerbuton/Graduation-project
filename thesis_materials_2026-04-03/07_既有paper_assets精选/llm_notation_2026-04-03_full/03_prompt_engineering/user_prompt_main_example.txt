@@ -1,0 +1,2 @@
+以下是第二模块输出的完整减字序列，请基于完整上下文打谱并输出严格 JSON：
+[{"group_id":"group_1","right_fingering":"","left_fingering":"","left_finger":"","hui":"一","xian":"","action":"","finger":"","position":"一","string":"一"},{"group_id":"group_2","right_fingering":"历","left_fingering":"","left_finger":"","hui":"","xian":"六","action":"历","finger":"","position":"","string":"六"},{"group_id":"group_3","right_fingering":"","left_fingering":"","left_finger":"","hui":"五","xian":"","action":"","finger":"","position":"五","string":"五"}]

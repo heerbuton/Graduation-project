@@ -1,0 +1,51 @@
+{
+  "request_llm_result_fragment": [
+    {
+      "pitch": "9",
+      "octave": "7",
+      "duration": "32",
+      "action": "勾",
+      "string": "一",
+      "position": "九",
+      "finger": "大",
+      "new_measure": "oops"
+    },
+    {
+      "pitch": "2",
+      "octave": "4",
+      "duration": "8",
+      "action": "抹",
+      "string": "二",
+      "position": "十",
+      "finger": "中",
+      "new_measure": true
+    }
+  ],
+  "http_status": 200,
+  "response_status": "success",
+  "response_message": null,
+  "response_llm_result_fragment": [
+    {
+      "action": "勾",
+      "duration": "32",
+      "finger": "大",
+      "new_measure": true,
+      "octave": "7",
+      "pitch": "1",
+      "position": "九",
+      "string": "一"
+    },
+    {
+      "action": "抹",
+      "duration": "8",
+      "finger": "中",
+      "new_measure": true,
+      "octave": "4",
+      "pitch": "2",
+      "position": "十",
+      "string": "二"
+    }
+  ],
+  "response_score_model_noteCount": 2,
+  "response_music_xml_length": 1973
+}

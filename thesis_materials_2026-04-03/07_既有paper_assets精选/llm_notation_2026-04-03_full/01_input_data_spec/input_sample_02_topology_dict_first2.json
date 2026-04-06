@@ -1,0 +1,92 @@
+{
+  "group_1": {
+    "fingering": "",
+    "finger": "",
+    "position": "一",
+    "string": "一",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "一",
+    "xian": "",
+    "hui_digits": [
+      "一"
+    ],
+    "xian_digit": "",
+    "is_marker": false,
+    "is_section_start": false,
+    "is_section_end": false,
+    "marker_type": "",
+    "sequence_index": 1,
+    "group_bbox": [
+      791.5726928710938,
+      957.9423828125,
+      809.8185424804688,
+      970.115966796875
+    ],
+    "components": [
+      {
+        "class": "一",
+        "bbox": [
+          791.5726928710938,
+          957.9423828125,
+          809.8185424804688,
+          970.115966796875
+        ],
+        "conf": 0.327703,
+        "role": "number",
+        "class_id": 0
+      }
+    ]
+  },
+  "group_2": {
+    "fingering": "历",
+    "finger": "",
+    "position": "",
+    "string": "六",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "hui_digits": [],
+    "xian_digit": "六",
+    "is_marker": false,
+    "is_section_start": false,
+    "is_section_end": false,
+    "marker_type": "",
+    "sequence_index": 2,
+    "group_bbox": [
+      722.9007458948195,
+      192.8180721610866,
+      779.1570409517648,
+      251.61585681745277
+    ],
+    "components": [
+      {
+        "class": "历",
+        "bbox": [
+          722.9007458948195,
+          192.8180721610866,
+          777.4396035265786,
+          249.94372112372307
+        ],
+        "conf": 0.841076,
+        "role": "right_hand",
+        "class_id": 24
+      },
+      {
+        "class": "六",
+        "bbox": [
+          740.3427235949639,
+          207.5703662590422,
+          779.1570409517648,
+          251.61585681745277
+        ],
+        "conf": 0.869699,
+        "role": "number",
+        "class_id": 5
+      }
+    ]
+  }
+}

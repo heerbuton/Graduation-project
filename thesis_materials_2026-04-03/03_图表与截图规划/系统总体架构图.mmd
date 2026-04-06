@@ -1,0 +1,49 @@
+flowchart TB
+  subgraph L1["表示层（UI）"]
+    UI1["上传页"]
+    UI2["特征提取与交互校对页"]
+    UI3["拓扑序列页"]
+    UI4["LLM 推理页"]
+    UI5["打谱渲染页"]
+  end
+
+  subgraph L2["业务逻辑层（Flask API）"]
+    A1["POST /api/upload"]
+    A2["POST /api/reflow_from_topology"]
+    A3["GET /api/run_testpicture_pipeline"]
+    A4["GET /api/mock_pipeline"]
+  end
+
+  subgraph L3["算法层（Pipeline）"]
+    P1["cv_module\nYOLO/SAHI"]
+    P2["topology_module\n聚合+排序"]
+    P3["llm_module\n音高/时值推理"]
+    P4["score_model_transformer"]
+    P5["musicxml_encoder"]
+  end
+
+  subgraph L4["数据层"]
+    D1["上传图片/静态文件"]
+    D2["yolo_boxes"]
+    D3["topology_json"]
+    D4["jianzi_sequence"]
+    D5["llm_result"]
+    D6["score_model"]
+    D7["music_xml"]
+  end
+
+  UI1 --> A1
+  UI2 --> A2
+  UI3 --> UI4 --> UI5
+  A1 --> P1 --> P2 --> P3 --> P4
+  P3 --> P5
+  P1 --> D2
+  P2 --> D3 --> D4
+  P3 --> D5
+  P4 --> D6
+  P5 --> D7
+  A1 --> D1
+  UI2 -.人工修正回路.-> A2
+  A2 --> P2 --> P3 --> P4
+  A2 --> P5
+

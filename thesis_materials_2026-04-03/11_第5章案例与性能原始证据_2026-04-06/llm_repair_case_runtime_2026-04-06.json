@@ -1,0 +1,55 @@
+{
+  "case_type": "llm_invalid_enum_then_repair",
+  "is_real_execution": true,
+  "execution_mode": "local_runtime_with_mocked_llm_response",
+  "topology_input_fragment": {
+    "group_1": {
+      "fingering": "勾",
+      "finger": "大",
+      "position": "九",
+      "string": "一",
+      "right_fingering": "勾",
+      "left_fingering": "",
+      "left_finger": "大",
+      "hui": "九",
+      "xian": "一",
+      "components": []
+    }
+  },
+  "invalid_model_output_fragment": {
+    "group_id": "group_1",
+    "pitch": "9",
+    "octave": "7",
+    "duration": "32",
+    "action": "勾",
+    "string": "一",
+    "position": "九",
+    "finger": "大",
+    "new_measure": false
+  },
+  "repair_prompt_failure_reason": "字段 pitch 非法: '9'",
+  "repaired_model_output_fragment": {
+    "group_id": "group_1",
+    "pitch": "1",
+    "octave": "4",
+    "duration": "4",
+    "action": "勾",
+    "string": "一",
+    "position": "九",
+    "finger": "大",
+    "new_measure": false
+  },
+  "final_public_output_fragment": [
+    {
+      "pitch": "1",
+      "octave": "4",
+      "duration": "4",
+      "action": "勾",
+      "string": "一",
+      "position": "九",
+      "finger": "大"
+    }
+  ],
+  "llm_call_count": 2,
+  "raw_repair_user_prompt": "校验失败原因：\n字段 pitch 非法: '9'\n输入 groups：\n[{\"group_id\":\"group_1\",\"right_fingering\":\"勾\",\"left_fingering\":\"\",\"left_finger\":\"大\",\"hui\":\"九\",\"xian\":\"一\",\"action\":\"勾\",\"finger\":\"大\",\"position\":\"九\",\"string\":\"一\",\"tone_table_hit\":true,\"tone_table_pitch\":\"2\",\"tone_table_octave\":\"3\",\"tone_table_ref\":\"1弦九->低音2\"}]\n待修复 draft_notes：\n[{\"group_id\":\"group_1\",\"pitch\":\"9\",\"octave\":\"7\",\"duration\":\"32\",\"action\":\"勾\",\"string\":\"一\",\"position\":\"九\",\"finger\":\"大\",\"new_measure\":false}]"
+}

@@ -54,9 +54,6 @@ const groupEditorFields = ref({
 const groupEditorError = ref('')
 const reflowStatusMessage = ref('')
 const isReflowing = ref(false)
-const llmEditorError = ref('')
-const llmStatusMessage = ref('')
-const isRenderingFromLlm = ref(false)
 
 const cloneJson = (value, fallback = null) => {
   try {
@@ -69,15 +66,6 @@ const cloneJson = (value, fallback = null) => {
 const toNumber = (value, fallback = 0) => {
   const num = Number(value)
   return Number.isFinite(num) ? num : fallback
-}
-
-const ALLOWED_PITCH_VALUES = ['1', '2', '3', '4', '5', '6', '7']
-const ALLOWED_OCTAVE_VALUES = ['1', '2', '3', '4', '5', '6', '7']
-const ALLOWED_DURATION_VALUES = ['1', '2', '4', '8', '16', '32']
-
-const normalizeEnumValue = (value, allowedValues, fallbackValue) => {
-  const text = String(value ?? '').trim()
-  return allowedValues.includes(text) ? text : fallbackValue
 }
 
 const extractSequenceOrder = (groupId) => {
@@ -449,10 +437,6 @@ const resetTopologyInteractionState = () => {
   }
   groupEditorError.value = ''
   reflowStatusMessage.value = ''
-  llmEditorError.value = ''
-  llmStatusMessage.value = ''
-  isReflowing.value = false
-  isRenderingFromLlm.value = false
 }
 
 const loadEditorFromGroup = (groupId) => {
@@ -531,7 +515,7 @@ const saveSelectedGroupJson = () => {
   groupEditorError.value = ''
   const selectedDisplay = topologyDisplayEntries.value.find(item => item.groupId === selectedGroupId.value)
   const selectedLabel = selectedDisplay?.displayGroupLabel || selectedGroupId.value
-  reflowStatusMessage.value = `${selectedLabel} 已保存，可点击“下一步：乐理推理”。`
+  reflowStatusMessage.value = `${selectedLabel} 已保存，可继续重跑后续流程。`
 }
 
 const toggleGroupDeleted = (groupId = selectedGroupId.value) => {
@@ -594,77 +578,29 @@ const buildReflowTopologyPayload = () => {
   return payload
 }
 
-const normalizeLlmNoteInPlace = (note) => {
-  if (!note || typeof note !== 'object') return
-  note.pitch = normalizeEnumValue(note.pitch, ALLOWED_PITCH_VALUES, '1')
-  note.octave = normalizeEnumValue(note.octave, ALLOWED_OCTAVE_VALUES, '4')
-  note.duration = normalizeEnumValue(note.duration, ALLOWED_DURATION_VALUES, '4')
-}
-
-const normalizeLlmField = (index, field) => {
-  if (!Array.isArray(llmResult.value) || !llmResult.value[index]) return
-  const note = llmResult.value[index]
-  if (field === 'pitch') {
-    note.pitch = normalizeEnumValue(note.pitch, ALLOWED_PITCH_VALUES, '1')
-  } else if (field === 'octave') {
-    note.octave = normalizeEnumValue(note.octave, ALLOWED_OCTAVE_VALUES, '4')
-  } else if (field === 'duration') {
-    note.duration = normalizeEnumValue(note.duration, ALLOWED_DURATION_VALUES, '4')
-  } else {
-    normalizeLlmNoteInPlace(note)
-  }
-}
-
-const buildLlmRenderPayload = () => {
-  if (!Array.isArray(llmResult.value)) return []
-  return llmResult.value
-    .filter(item => item && typeof item === 'object')
-    .map((item) => {
-      const note = cloneJson(item, {})
-      note.pitch = normalizeEnumValue(note.pitch, ALLOWED_PITCH_VALUES, '1')
-      note.octave = normalizeEnumValue(note.octave, ALLOWED_OCTAVE_VALUES, '4')
-      note.duration = normalizeEnumValue(note.duration, ALLOWED_DURATION_VALUES, '4')
-      return note
-    })
-}
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-
 const rerunFromEditedTopology = async () => {
   const topologyPayload = buildReflowTopologyPayload()
   if (Object.keys(topologyPayload).length === 0) {
-    errorMessage.value = '至少保留一个有效减字组后再进入下一步。'
+    errorMessage.value = '至少保留一个有效减字组后再重跑。'
     return
   }
   const previousSelectedGroupId = selectedGroupId.value
 
   isReflowing.value = true
   errorMessage.value = ''
-  llmEditorError.value = ''
-  llmStatusMessage.value = ''
-  reflowStatusMessage.value = '正在基于修正结果执行下一步（拓扑 -> 乐理推理）...'
+  reflowStatusMessage.value = '正在基于修正结果重跑后续流程...'
   pipelineStatus.value = 'topology'
   activeTab.value = 'topology'
-  llmResult.value = []
 
   try {
-    const responsePromise = axios.post(`${BACKEND_BASE}/api/reflow_from_topology`, {
+    const response = await axios.post(`${BACKEND_BASE}/api/reflow_from_topology`, {
       topology_json: topologyPayload
     })
-
-    // 第二步固定展示 7 秒，再切到第三步
-    await delay(7000)
-    pipelineStatus.value = 'llm'
-    activeTab.value = 'llm'
-    llmStatusMessage.value = '正在执行乐理推理，请稍候...'
-
-    const response = await responsePromise
     const data = response?.data?.data || {}
 
     topologyJson.value = cloneJson(data.topology_json, topologyPayload)
     jianziSequence.value = cloneJson(data.jianzi_sequence, [])
     llmResult.value = cloneJson(data.llm_result, [])
-    llmResult.value.forEach((note) => normalizeLlmNoteInPlace(note))
     musicXml.value = data.music_xml || ''
     if (Array.isArray(llmResult.value) && llmResult.value.length > 0) {
       scoreModel.value = convertLlmResultToScoreModel(llmResult.value, { strict: false })
@@ -672,8 +608,16 @@ const rerunFromEditedTopology = async () => {
       scoreModel.value = data.score_model || convertLlmResultToScoreModel([], { strict: false })
     }
 
-    reflowStatusMessage.value = '乐理推理已完成，请在 LLM 页修正 Pitch/Octave/Duration 后点击“下一步：打谱渲染”。'
-    llmStatusMessage.value = '乐理推理已完成，可先修正 Pitch/Octave/Duration。'
+    await delay(700)
+    pipelineStatus.value = 'llm'
+    activeTab.value = 'llm'
+    await delay(700)
+    pipelineStatus.value = 'xml'
+    activeTab.value = 'xml'
+    await delay(300)
+    pipelineStatus.value = 'success'
+
+    reflowStatusMessage.value = '修正结果已应用，后续流程刷新完成。'
     selectedGroupId.value = (
       previousSelectedGroupId &&
       topologyJson.value &&
@@ -687,48 +631,9 @@ const rerunFromEditedTopology = async () => {
     }
   } catch (error) {
     pipelineStatus.value = 'error'
-    llmStatusMessage.value = ''
     errorMessage.value = error.response?.data?.message || error.message || '重跑失败'
   } finally {
     isReflowing.value = false
-  }
-}
-
-const goNextFromLlmToRender = async () => {
-  const llmPayload = buildLlmRenderPayload()
-  if (!llmPayload.length) {
-    llmEditorError.value = '当前没有可渲染的音符，请先完成上一步推理。'
-    return
-  }
-
-  isRenderingFromLlm.value = true
-  errorMessage.value = ''
-  llmEditorError.value = ''
-  llmStatusMessage.value = '正在根据修正后的 LLM 结果生成打谱渲染...'
-
-  try {
-    const response = await axios.post(`${BACKEND_BASE}/api/render_from_llm_result`, {
-      llm_result: llmPayload
-    })
-    const data = response?.data?.data || {}
-
-    llmResult.value = cloneJson(data.llm_result, llmPayload)
-    llmResult.value.forEach((note) => normalizeLlmNoteInPlace(note))
-    musicXml.value = data.music_xml || ''
-    if (data.score_model) {
-      scoreModel.value = cloneJson(data.score_model, null)
-    } else {
-      scoreModel.value = convertLlmResultToScoreModel(llmResult.value, { strict: false })
-    }
-
-    pipelineStatus.value = 'xml'
-    activeTab.value = 'xml'
-    pipelineStatus.value = 'success'
-    llmStatusMessage.value = '已基于修正结果完成打谱渲染。'
-  } catch (error) {
-    llmEditorError.value = error.response?.data?.message || error.message || '从修正后的 LLM 结果生成渲染失败'
-  } finally {
-    isRenderingFromLlm.value = false
   }
 }
 
@@ -855,13 +760,14 @@ const renderImageWithBoxes = () => {
   img.src = `${BACKEND_BASE}${originalImageUrl.value}`
 }
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
 const applyPipelineResult = (data, fallbackImageUrl = '') => {
   originalImageUrl.value = data.original_image_url || fallbackImageUrl
   yoloBoxes.value = cloneJson(data.yolo_boxes, [])
   jianziSequence.value = cloneJson(data.jianzi_sequence, [])
   topologyJson.value = cloneJson(data.topology_json, null)
   llmResult.value = cloneJson(data.llm_result, [])
-  llmResult.value.forEach((note) => normalizeLlmNoteInPlace(note))
   musicXml.value = data.music_xml || ''
   imageNaturalSize.value = { width: 0, height: 0 }
   imageRenderMeta.value = {
@@ -897,7 +803,6 @@ const uploadAndProcess = async () => {
 
   const formData = new FormData()
   formData.append('file', selectedFile.value)
-  formData.append('run_mode', 'step1')
 
   try {
     const response = await axios.post(`${BACKEND_BASE}/api/upload`, formData, {
@@ -905,12 +810,29 @@ const uploadAndProcess = async () => {
     })
     const data = response.data.data
 
-    // Step1 完成：停留在 CV 校对页，等待用户点击“下一步”
+    // CV 阶段
     pipelineStatus.value = 'cv'
     activeTab.value = 'cv'
     applyPipelineResult(data)
     scheduleRenderImageWithBoxes(120)
-    reflowStatusMessage.value = '识别与聚合已完成。请先校对 group，再点击“下一步：乐理推理”。'
+    await delay(3000)
+
+    // Topology 阶段
+    pipelineStatus.value = 'topology'
+    activeTab.value = 'topology'
+    await delay(3000)
+
+    // LLM 阶段
+    pipelineStatus.value = 'llm'
+    activeTab.value = 'llm'
+    await delay(3500)
+
+    // XML 打谱阶段
+    pipelineStatus.value = 'xml'
+    activeTab.value = 'xml'
+    await delay(2500)
+
+    pipelineStatus.value = 'success'
 
   } catch (error) {
     pipelineStatus.value = 'error'
@@ -933,21 +855,20 @@ const loadSavedTestPictureResult = async () => {
     activeTab.value = 'cv'
     applyPipelineResult(data, '/static/uploads/testpicture-1.jpg')
     scheduleRenderImageWithBoxes(120)
-    reflowStatusMessage.value = ''
-    llmStatusMessage.value = ''
-    llmEditorError.value = ''
+    await delay(3000)
 
-    // Demo 保持自动串行演示（无需手动点下一步）
-    await delay(1200)
     pipelineStatus.value = 'topology'
     activeTab.value = 'topology'
-    await delay(1200)
+    await delay(3000)
+
     pipelineStatus.value = 'llm'
     activeTab.value = 'llm'
-    await delay(1400)
+    await delay(3500)
+
     pipelineStatus.value = 'xml'
     activeTab.value = 'xml'
-    await delay(800)
+    await delay(2500)
+
     pipelineStatus.value = 'success'
   } catch (error) {
     pipelineStatus.value = 'error'
@@ -1087,7 +1008,7 @@ const resetAll = () => {
                 :disabled="isReflowing || activeTopologyGroupCount === 0"
                 class="text-xs sm:text-sm bg-gradient-to-r from-cyan-600 to-emerald-600 text-white px-4 py-2 rounded-md border border-white/25 hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed font-mono font-semibold shadow-lg shadow-cyan-900/40"
               >
-                {{ isReflowing ? '处理中...' : '下一步：乐理推理' }}
+                {{ isReflowing ? '重跑中...' : '应用修正并重跑流程' }}
               </button>
             </div>
 
@@ -1236,7 +1157,7 @@ const resetAll = () => {
           </div>
 
           <p v-if="groupEditorError" class="mt-3 text-xs text-rose-300 font-mono">{{ groupEditorError }}</p>
-          <p v-else class="mt-3 text-xs text-slate-400 font-mono">仅编辑这 5 个传给 LLM 的字段；保存后点击顶部“下一步：乐理推理”。</p>
+          <p v-else class="mt-3 text-xs text-slate-400 font-mono">仅编辑这 5 个传给 LLM 的字段；保存后点“应用修正并重跑后续流程”刷新结果。</p>
         </div>
       </div>
 
@@ -1299,25 +1220,9 @@ const resetAll = () => {
       <div v-show="activeTab === 'llm'" class="w-full max-w-[1600px] glass-panel p-6 rounded-2xl animate-fade-in border border-white/10 flex flex-col h-[75vh]">
         <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10 px-2">
           <h2 class="text-2xl font-light text-amber-500 tracking-widest font-guqin">大语言模型乐理推断阵列</h2>
-          <div class="flex items-center gap-3 flex-wrap justify-end">
-            <span class="text-xs bg-amber-500/10 text-amber-400 px-4 py-1.5 rounded-full border border-amber-500/30 font-mono shadow-lg">{{ llmResult?.length || 0 }} LLM Inferences</span>
-            <button
-              @click="goNextFromLlmToRender"
-              :disabled="isRenderingFromLlm || !llmResult?.length"
-              class="text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-md border border-white/25 hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed font-mono font-semibold shadow-lg shadow-amber-900/40"
-            >
-              {{ isRenderingFromLlm ? '渲染中...' : '下一步：打谱渲染' }}
-            </button>
-          </div>
+          <span class="text-xs bg-amber-500/10 text-amber-400 px-4 py-1.5 rounded-full border border-amber-500/30 font-mono shadow-lg">{{ llmResult?.length || 0 }} LLM Inferences</span>
         </div>
-
-        <div v-if="llmStatusMessage" class="mb-3 self-start max-w-full text-xs font-mono font-semibold text-amber-100 bg-slate-950/92 border border-amber-400/40 rounded-md px-3 py-1.5 shadow-lg">
-          {{ llmStatusMessage }}
-        </div>
-        <div v-if="llmEditorError" class="mb-3 self-start max-w-full text-xs font-mono font-semibold text-rose-200 bg-rose-950/70 border border-rose-400/40 rounded-md px-3 py-1.5 shadow-lg">
-          {{ llmEditorError }}
-        </div>
-
+        
         <div class="flex-1 w-full overflow-y-auto pr-3 pb-4 scrollbar-thin">
           <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 pb-10">
             <!-- 单个 JSON 方块 -->
@@ -1334,39 +1239,12 @@ const resetAll = () => {
                  </div>
                </div>
                
-                <div class="space-y-2 font-mono text-xs bg-black/60 p-3 rounded-lg border border-white/5 relative z-10 mt-2">
-                  <div class="flex items-center justify-between gap-2">
-                    <label class="text-slate-500">Pitch</label>
-                    <select
-                      v-model="note.pitch"
-                      class="min-w-[84px] rounded bg-slate-900/90 border border-rose-500/35 text-rose-200 px-2 py-1 outline-none focus:border-rose-300/70"
-                      @change="normalizeLlmField(idx, 'pitch')"
-                    >
-                      <option v-for="pitch in ALLOWED_PITCH_VALUES" :key="`pitch-${idx}-${pitch}`" :value="pitch">{{ pitch }}</option>
-                    </select>
-                  </div>
-                  <div class="flex items-center justify-between gap-2">
-                    <label class="text-slate-500">Octave</label>
-                    <select
-                      v-model="note.octave"
-                      class="min-w-[84px] rounded bg-slate-900/90 border border-cyan-500/35 text-cyan-200 px-2 py-1 outline-none focus:border-cyan-300/70"
-                      @change="normalizeLlmField(idx, 'octave')"
-                    >
-                      <option v-for="octave in ALLOWED_OCTAVE_VALUES" :key="`octave-${idx}-${octave}`" :value="octave">{{ octave }}</option>
-                    </select>
-                  </div>
-                  <div class="flex items-center justify-between gap-2">
-                    <label class="text-slate-500">Duration</label>
-                    <select
-                      v-model="note.duration"
-                      class="min-w-[84px] rounded bg-slate-900/90 border border-emerald-500/35 text-emerald-200 px-2 py-1 outline-none focus:border-emerald-300/70"
-                      @change="normalizeLlmField(idx, 'duration')"
-                    >
-                      <option v-for="duration in ALLOWED_DURATION_VALUES" :key="`duration-${idx}-${duration}`" :value="duration">1/{{ duration }}</option>
-                    </select>
-                  </div>
-                </div>
-             </div>
+               <div class="space-y-1.5 font-mono text-xs bg-black/60 p-3 rounded-lg border border-white/5 relative z-10 mt-2">
+                  <div class="flex justify-between items-center"><span class="text-slate-500">Pitch</span> <span class="bg-rose-500/20 border border-rose-500/20 text-rose-300 px-1.5 py-0.5 rounded">{{ note.pitch || '-' }}</span></div>
+                  <div class="flex justify-between items-center"><span class="text-slate-500">Octave</span> <span class="text-slate-300">{{ note.octave || '-' }}</span></div>
+                  <div class="flex justify-between items-center"><span class="text-slate-500">Duration</span> <span class="bg-emerald-500/20 border border-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">{{ note.duration ? '1/'+note.duration : '-' }}</span></div>
+               </div>
+            </div>
           </div>
         </div>
       </div>
