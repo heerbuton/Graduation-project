@@ -1,0 +1,4 @@
+variant,page_success_rate,page_full_match_rate,group_coverage_rate,group_full_match_rate,pitch_rate,octave_rate,duration_rate,new_measure_rate
+A0,1.0,0.117647,1.0,0.063253,0.153614,0.432229,0.806476,0.983434
+A1,0.941176,0.176471,0.910392,0.723645,0.900744,0.93962,0.91067,0.989247
+A2,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

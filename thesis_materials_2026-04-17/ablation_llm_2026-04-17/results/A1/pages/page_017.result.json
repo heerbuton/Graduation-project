@@ -1,0 +1,252 @@
+{
+  "page_id": "page_017",
+  "source_path": "F:\\AIcharacter\\End\\test\\result_topology.json",
+  "topology_path": "F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\data\\fixed_topologies\\page_017.topology.json",
+  "group_count": 11,
+  "variant": {
+    "id": "A1",
+    "name": "tone_no_repair",
+    "tone_injection": true,
+    "repair": false,
+    "description": "有音位表、无修复"
+  },
+  "timing": {
+    "infer_s": 13.45,
+    "musicxml_s": 0.003,
+    "total_s": 13.453
+  },
+  "llm_call_count_accumulated": 17,
+  "structured": {
+    "total_groups": 11,
+    "notes_count": 11,
+    "valid_note_count": 11,
+    "page_pass": true,
+    "errors": []
+  },
+  "inference": {
+    "ok": true,
+    "error": null,
+    "traceback": null
+  },
+  "musicxml": {
+    "ok": true,
+    "error": null,
+    "traceback": null,
+    "xml_length": 7157
+  },
+  "notes_merged": [
+    {
+      "group_id": "group_1",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "",
+      "position": "",
+      "finger": "",
+      "new_measure": true
+    },
+    {
+      "group_id": "group_2",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_3",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "8",
+      "action": "散",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_4",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "打",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_5",
+      "pitch": "6",
+      "octave": "3",
+      "duration": "4",
+      "action": "挑",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_6",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_7",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_8",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_9",
+      "pitch": "6",
+      "octave": "3",
+      "duration": "4",
+      "action": "挑",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_10",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "group_id": "group_11",
+      "pitch": "1",
+      "octave": "4",
+      "duration": "4",
+      "action": "",
+      "string": "一",
+      "position": "",
+      "finger": ""
+    }
+  ],
+  "notes_public": [
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "",
+      "position": "",
+      "finger": "",
+      "new_measure": true
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "8",
+      "action": "散",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "打",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "6",
+      "octave": "3",
+      "duration": "4",
+      "action": "挑",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "6",
+      "octave": "3",
+      "duration": "4",
+      "action": "挑",
+      "string": "三",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "action": "勾",
+      "string": "",
+      "position": "",
+      "finger": ""
+    },
+    {
+      "pitch": "1",
+      "octave": "4",
+      "duration": "4",
+      "action": "",
+      "string": "一",
+      "position": "",
+      "finger": ""
+    }
+  ]
+}

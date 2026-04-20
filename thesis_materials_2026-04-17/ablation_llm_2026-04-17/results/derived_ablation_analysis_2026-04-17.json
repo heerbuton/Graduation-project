@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-04-17T23:25:34",
+  "dataset": {
+    "pages": 18,
+    "groups": 1609,
+    "tone_hit_groups_all_pages": 622
+  },
+  "variants": {
+    "A0": {
+      "infer_fail_page_count": 1,
+      "infer_fail_pages": [
+        {
+          "page_id": "page_008",
+          "group_count": 281,
+          "error": "ReadTimeout: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Read timed out. (read timeout=180.0)"
+        }
+      ],
+      "tone_hit_on_success_pages": 575,
+      "tone_pitch_match_on_success_pages": 48,
+      "tone_oct_match_on_success_pages": 182,
+      "tone_pitch_oct_match_on_success_pages": 10,
+      "tone_pitch_oct_match_rate_on_success_pages": 0.017391,
+      "tone_pitch_oct_match_rate_on_all_tone_hits": 0.016077
+    },
+    "A1": {
+      "infer_fail_page_count": 2,
+      "infer_fail_pages": [
+        {
+          "page_id": "page_001",
+          "group_count": 119,
+          "error": "ProxyError: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Max retries exceeded with url: /compatible-mode/v1/chat/completions (Caused by ProxyError('Unable to connect to proxy', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))"
+        },
+        {
+          "page_id": "page_008",
+          "group_count": 281,
+          "error": "ReadTimeout: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Read timed out. (read timeout=180.0)"
+        }
+      ],
+      "tone_hit_on_success_pages": 513,
+      "tone_pitch_match_on_success_pages": 513,
+      "tone_oct_match_on_success_pages": 513,
+      "tone_pitch_oct_match_on_success_pages": 513,
+      "tone_pitch_oct_match_rate_on_success_pages": 1.0,
+      "tone_pitch_oct_match_rate_on_all_tone_hits": 0.824759
+    },
+    "A2": {
+      "infer_fail_page_count": 1,
+      "infer_fail_pages": [
+        {
+          "page_id": "page_008",
+          "group_count": 281,
+          "error": "ReadTimeout: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Read timed out. (read timeout=180.0)"
+        }
+      ],
+      "tone_hit_on_success_pages": 575,
+      "tone_pitch_match_on_success_pages": 575,
+      "tone_oct_match_on_success_pages": 575,
+      "tone_pitch_oct_match_on_success_pages": 575,
+      "tone_pitch_oct_match_rate_on_success_pages": 1.0,
+      "tone_pitch_oct_match_rate_on_all_tone_hits": 0.924437
+    }
+  },
+  "pairwise": {
+    "A0_vs_A2": {
+      "comparable_pages": 17,
+      "changed_pages": 15,
+      "comparable_notes": 1328,
+      "field_diff_counts": {
+        "pitch": 1124,
+        "octave": 754,
+        "duration": 257,
+        "new_measure": 22,
+        "string": 41,
+        "position": 26,
+        "finger": 2
+      }
+    },
+    "A1_vs_A2": {
+      "comparable_pages": 16,
+      "changed_pages": 13,
+      "comparable_notes": 1209,
+      "field_diff_counts": {
+        "pitch": 120,
+        "octave": 73,
+        "duration": 108,
+        "new_measure": 13,
+        "position": 10,
+        "string": 4,
+        "finger": 5
+      }
+    },
+    "A0_vs_A1": {
+      "comparable_pages": 16,
+      "changed_pages": 14,
+      "comparable_notes": 1209,
+      "field_diff_counts": {
+        "pitch": 1009,
+        "octave": 707,
+        "duration": 267,
+        "new_measure": 20,
+        "string": 41,
+        "position": 16,
+        "finger": 7
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "sample_image": "F:\\AIcharacter\\End\\test\\testpicture-1.jpg",
+  "counts": {
+    "detected_boxes": 378,
+    "group_count": 135,
+    "ordered_sequence_length": 135
+  },
+  "figures": {
+    "fig3_10": "F:\\AIcharacter\\End\\test\\paper_figures\\fig3-10_topology_sequence.png",
+    "fig4_5": "F:\\AIcharacter\\End\\test\\paper_figures\\fig4-5_detection_stage.png",
+    "fig4_6": "F:\\AIcharacter\\End\\test\\paper_figures\\fig4-6_topology_grouping.png",
+    "fig4_7": "F:\\AIcharacter\\End\\test\\paper_figures\\fig4-7_sequence_validation.png"
+  },
+  "fig5_4_materials": {
+    "raw_input": "F:\\AIcharacter\\End\\test\\paper_figures\\fig5-4_materials\\raw_input.png",
+    "detection_boxes": "F:\\AIcharacter\\End\\test\\paper_figures\\fig5-4_materials\\detection_boxes.png",
+    "group_aggregation": "F:\\AIcharacter\\End\\test\\paper_figures\\fig5-4_materials\\group_aggregation.png",
+    "ordered_sequence": "F:\\AIcharacter\\End\\test\\paper_figures\\fig5-4_materials\\ordered_sequence.png",
+    "simplified_group_json": "F:\\AIcharacter\\End\\test\\paper_figures\\fig5-4_materials\\group_sequence_simplified.json",
+    "topology_json": "F:\\AIcharacter\\End\\test\\paper_figures\\source_data\\topology_full.json",
+    "sequence_json": "F:\\AIcharacter\\End\\test\\paper_figures\\source_data\\jianzi_sequence_full.json"
+  }
+}

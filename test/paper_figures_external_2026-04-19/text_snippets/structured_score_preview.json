@@ -1,0 +1,32 @@
+{
+  "notes": [
+    {
+      "group_id": "group_1",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "measure": 1
+    },
+    {
+      "group_id": "group_2",
+      "pitch": "6",
+      "octave": "4",
+      "duration": "8",
+      "measure": 1
+    },
+    {
+      "group_id": "group_3",
+      "pitch": "5",
+      "octave": "3",
+      "duration": "4",
+      "measure": 1
+    },
+    {
+      "group_id": "group_4",
+      "pitch": "3",
+      "octave": "3",
+      "duration": "4",
+      "measure": 1
+    }
+  ]
+}

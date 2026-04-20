@@ -1,0 +1,537 @@
+{
+  "generated_at": "2026-04-17T23:27:22",
+  "method": "A2 as pseudo ground truth",
+  "scope": {
+    "all_pages_count": 18,
+    "a2_success_pages_count": 17,
+    "a2_failed_pages_count": 1,
+    "a2_failed_pages": [
+      "page_008"
+    ],
+    "a2_total_groups_success_scope": 1328
+  },
+  "variants": {
+    "A0": {
+      "page_success_vs_a2_scope": {
+        "success_pages": 17,
+        "a2_success_pages": 17,
+        "rate": 1.0
+      },
+      "page_full_match_vs_a2": {
+        "full_match_pages": 2,
+        "a2_success_pages": 17,
+        "rate": 0.117647
+      },
+      "group_coverage_vs_a2": {
+        "covered_groups": 1328,
+        "a2_groups": 1328,
+        "rate": 1.0
+      },
+      "group_full_match_vs_a2": {
+        "full_match_groups": 84,
+        "a2_groups": 1328,
+        "rate": 0.063253
+      },
+      "field_match_vs_a2": {
+        "total_compared": 5312,
+        "pitch_match": 204,
+        "octave_match": 574,
+        "duration_match": 1071,
+        "new_measure_match": 1306,
+        "pitch_rate": 0.153614,
+        "octave_rate": 0.432229,
+        "duration_rate": 0.806476,
+        "new_measure_rate": 0.983434
+      },
+      "missing_or_failed_pages_in_a2_scope": [],
+      "per_page_rows": [
+        {
+          "page_id": "page_001",
+          "a2_group_count": 119,
+          "variant_infer_ok": true,
+          "covered_groups": 119,
+          "full_match_groups": 3,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_002",
+          "a2_group_count": 76,
+          "variant_infer_ok": true,
+          "covered_groups": 76,
+          "full_match_groups": 4,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_003",
+          "a2_group_count": 92,
+          "variant_infer_ok": true,
+          "covered_groups": 92,
+          "full_match_groups": 20,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_004",
+          "a2_group_count": 102,
+          "variant_infer_ok": true,
+          "covered_groups": 102,
+          "full_match_groups": 2,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_005",
+          "a2_group_count": 92,
+          "variant_infer_ok": true,
+          "covered_groups": 92,
+          "full_match_groups": 9,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_006",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 1,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_007",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 1,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_009",
+          "a2_group_count": 134,
+          "variant_infer_ok": true,
+          "covered_groups": 134,
+          "full_match_groups": 7,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_010",
+          "a2_group_count": 140,
+          "variant_infer_ok": true,
+          "covered_groups": 140,
+          "full_match_groups": 5,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_011",
+          "a2_group_count": 137,
+          "variant_infer_ok": true,
+          "covered_groups": 137,
+          "full_match_groups": 7,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_012",
+          "a2_group_count": 133,
+          "variant_infer_ok": true,
+          "covered_groups": 133,
+          "full_match_groups": 0,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_013",
+          "a2_group_count": 2,
+          "variant_infer_ok": true,
+          "covered_groups": 2,
+          "full_match_groups": 1,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_014",
+          "a2_group_count": 142,
+          "variant_infer_ok": true,
+          "covered_groups": 142,
+          "full_match_groups": 5,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_015",
+          "a2_group_count": 134,
+          "variant_infer_ok": true,
+          "covered_groups": 134,
+          "full_match_groups": 0,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_016",
+          "a2_group_count": 11,
+          "variant_infer_ok": true,
+          "covered_groups": 11,
+          "full_match_groups": 9,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_017",
+          "a2_group_count": 11,
+          "variant_infer_ok": true,
+          "covered_groups": 11,
+          "full_match_groups": 10,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_018",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 0,
+          "page_full_match": false
+        }
+      ]
+    },
+    "A1": {
+      "page_success_vs_a2_scope": {
+        "success_pages": 16,
+        "a2_success_pages": 17,
+        "rate": 0.941176
+      },
+      "page_full_match_vs_a2": {
+        "full_match_pages": 3,
+        "a2_success_pages": 17,
+        "rate": 0.176471
+      },
+      "group_coverage_vs_a2": {
+        "covered_groups": 1209,
+        "a2_groups": 1328,
+        "rate": 0.910392
+      },
+      "group_full_match_vs_a2": {
+        "full_match_groups": 961,
+        "a2_groups": 1328,
+        "rate": 0.723645
+      },
+      "field_match_vs_a2": {
+        "total_compared": 4836,
+        "pitch_match": 1089,
+        "octave_match": 1136,
+        "duration_match": 1101,
+        "new_measure_match": 1196,
+        "pitch_rate": 0.900744,
+        "octave_rate": 0.93962,
+        "duration_rate": 0.91067,
+        "new_measure_rate": 0.989247
+      },
+      "missing_or_failed_pages_in_a2_scope": [
+        {
+          "page_id": "page_001",
+          "reason": "ProxyError: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Max retries exceeded with url: /compatible-mode/v1/chat/completions (Caused by ProxyError('Unable to connect to proxy', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))",
+          "a2_group_count": 119
+        }
+      ],
+      "per_page_rows": [
+        {
+          "page_id": "page_001",
+          "a2_group_count": 119,
+          "variant_infer_ok": false,
+          "covered_groups": 0,
+          "full_match_groups": 0,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_002",
+          "a2_group_count": 76,
+          "variant_infer_ok": true,
+          "covered_groups": 76,
+          "full_match_groups": 42,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_003",
+          "a2_group_count": 92,
+          "variant_infer_ok": true,
+          "covered_groups": 92,
+          "full_match_groups": 82,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_004",
+          "a2_group_count": 102,
+          "variant_infer_ok": true,
+          "covered_groups": 102,
+          "full_match_groups": 74,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_005",
+          "a2_group_count": 92,
+          "variant_infer_ok": true,
+          "covered_groups": 92,
+          "full_match_groups": 91,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_006",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 1,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_007",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 0,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_009",
+          "a2_group_count": 134,
+          "variant_infer_ok": true,
+          "covered_groups": 134,
+          "full_match_groups": 89,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_010",
+          "a2_group_count": 140,
+          "variant_infer_ok": true,
+          "covered_groups": 140,
+          "full_match_groups": 101,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_011",
+          "a2_group_count": 137,
+          "variant_infer_ok": true,
+          "covered_groups": 137,
+          "full_match_groups": 121,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_012",
+          "a2_group_count": 133,
+          "variant_infer_ok": true,
+          "covered_groups": 133,
+          "full_match_groups": 103,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_013",
+          "a2_group_count": 2,
+          "variant_infer_ok": true,
+          "covered_groups": 2,
+          "full_match_groups": 2,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_014",
+          "a2_group_count": 142,
+          "variant_infer_ok": true,
+          "covered_groups": 142,
+          "full_match_groups": 116,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_015",
+          "a2_group_count": 134,
+          "variant_infer_ok": true,
+          "covered_groups": 134,
+          "full_match_groups": 118,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_016",
+          "a2_group_count": 11,
+          "variant_infer_ok": true,
+          "covered_groups": 11,
+          "full_match_groups": 11,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_017",
+          "a2_group_count": 11,
+          "variant_infer_ok": true,
+          "covered_groups": 11,
+          "full_match_groups": 10,
+          "page_full_match": false
+        },
+        {
+          "page_id": "page_018",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 0,
+          "page_full_match": false
+        }
+      ]
+    },
+    "A2": {
+      "page_success_vs_a2_scope": {
+        "success_pages": 17,
+        "a2_success_pages": 17,
+        "rate": 1.0
+      },
+      "page_full_match_vs_a2": {
+        "full_match_pages": 17,
+        "a2_success_pages": 17,
+        "rate": 1.0
+      },
+      "group_coverage_vs_a2": {
+        "covered_groups": 1328,
+        "a2_groups": 1328,
+        "rate": 1.0
+      },
+      "group_full_match_vs_a2": {
+        "full_match_groups": 1328,
+        "a2_groups": 1328,
+        "rate": 1.0
+      },
+      "field_match_vs_a2": {
+        "total_compared": 5312,
+        "pitch_match": 1328,
+        "octave_match": 1328,
+        "duration_match": 1328,
+        "new_measure_match": 1328,
+        "pitch_rate": 1.0,
+        "octave_rate": 1.0,
+        "duration_rate": 1.0,
+        "new_measure_rate": 1.0
+      },
+      "missing_or_failed_pages_in_a2_scope": [],
+      "per_page_rows": [
+        {
+          "page_id": "page_001",
+          "a2_group_count": 119,
+          "variant_infer_ok": true,
+          "covered_groups": 119,
+          "full_match_groups": 119,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_002",
+          "a2_group_count": 76,
+          "variant_infer_ok": true,
+          "covered_groups": 76,
+          "full_match_groups": 76,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_003",
+          "a2_group_count": 92,
+          "variant_infer_ok": true,
+          "covered_groups": 92,
+          "full_match_groups": 92,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_004",
+          "a2_group_count": 102,
+          "variant_infer_ok": true,
+          "covered_groups": 102,
+          "full_match_groups": 102,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_005",
+          "a2_group_count": 92,
+          "variant_infer_ok": true,
+          "covered_groups": 92,
+          "full_match_groups": 92,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_006",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 1,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_007",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 1,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_009",
+          "a2_group_count": 134,
+          "variant_infer_ok": true,
+          "covered_groups": 134,
+          "full_match_groups": 134,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_010",
+          "a2_group_count": 140,
+          "variant_infer_ok": true,
+          "covered_groups": 140,
+          "full_match_groups": 140,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_011",
+          "a2_group_count": 137,
+          "variant_infer_ok": true,
+          "covered_groups": 137,
+          "full_match_groups": 137,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_012",
+          "a2_group_count": 133,
+          "variant_infer_ok": true,
+          "covered_groups": 133,
+          "full_match_groups": 133,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_013",
+          "a2_group_count": 2,
+          "variant_infer_ok": true,
+          "covered_groups": 2,
+          "full_match_groups": 2,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_014",
+          "a2_group_count": 142,
+          "variant_infer_ok": true,
+          "covered_groups": 142,
+          "full_match_groups": 142,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_015",
+          "a2_group_count": 134,
+          "variant_infer_ok": true,
+          "covered_groups": 134,
+          "full_match_groups": 134,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_016",
+          "a2_group_count": 11,
+          "variant_infer_ok": true,
+          "covered_groups": 11,
+          "full_match_groups": 11,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_017",
+          "a2_group_count": 11,
+          "variant_infer_ok": true,
+          "covered_groups": 11,
+          "full_match_groups": 11,
+          "page_full_match": true
+        },
+        {
+          "page_id": "page_018",
+          "a2_group_count": 1,
+          "variant_infer_ok": true,
+          "covered_groups": 1,
+          "full_match_groups": 1,
+          "page_full_match": true
+        }
+      ]
+    }
+  }
+}

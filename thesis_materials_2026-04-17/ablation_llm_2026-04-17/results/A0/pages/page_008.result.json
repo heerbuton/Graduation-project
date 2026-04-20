@@ -1,0 +1,41 @@
+{
+  "page_id": "page_008",
+  "source_path": "F:\\AIcharacter\\End\\backend\\static\\uploads\\R-C.jfif_result.json",
+  "topology_path": "F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\data\\fixed_topologies\\page_008.topology.json",
+  "group_count": 281,
+  "variant": {
+    "id": "A0",
+    "name": "base_no_tone_no_repair",
+    "tone_injection": false,
+    "repair": false,
+    "description": "无音位表、无修复，仅主生成 + 严格合并校验"
+  },
+  "timing": {
+    "infer_s": 181.991,
+    "musicxml_s": 0.0,
+    "total_s": 181.992
+  },
+  "llm_call_count_accumulated": 8,
+  "structured": {
+    "total_groups": 281,
+    "notes_count": 0,
+    "valid_note_count": 0,
+    "page_pass": false,
+    "errors": [
+      "notes 数量与 groups 不一致: notes=0, groups=281"
+    ]
+  },
+  "inference": {
+    "ok": false,
+    "error": "ReadTimeout: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Read timed out. (read timeout=180.0)",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\connectionpool.py\", line 534, in _make_request\n    response = conn.getresponse()\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\connection.py\", line 565, in getresponse\n    httplib_response = super().getresponse()\n  File \"F:\\anaconda\\envs\\pytorch\\lib\\http\\client.py\", line 1377, in getresponse\n    response.begin()\n  File \"F:\\anaconda\\envs\\pytorch\\lib\\http\\client.py\", line 320, in begin\n    version, status, reason = self._read_status()\n  File \"F:\\anaconda\\envs\\pytorch\\lib\\http\\client.py\", line 281, in _read_status\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\n  File \"F:\\anaconda\\envs\\pytorch\\lib\\socket.py\", line 716, in readinto\n    return self._sock.recv_into(b)\n  File \"F:\\anaconda\\envs\\pytorch\\lib\\ssl.py\", line 1275, in recv_into\n    return self.read(nbytes, buffer)\n  File \"F:\\anaconda\\envs\\pytorch\\lib\\ssl.py\", line 1133, in read\n    return self._sslobj.read(len, buffer)\nsocket.timeout: The read operation timed out\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\requests\\adapters.py\", line 644, in send\n    resp = conn.urlopen(\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\util\\retry.py\", line 474, in increment\n    raise reraise(type(error), error, _stacktrace)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\util\\util.py\", line 39, in reraise\n    raise value\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\connectionpool.py\", line 536, in _make_request\n    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\urllib3\\connectionpool.py\", line 367, in _raise_timeout\n    raise ReadTimeoutError(\nurllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Read timed out. (read timeout=180.0)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\scripts\\run_true_ablation.py\", line 382, in run_variant\n    notes_merged = llm_mod._infer_full_context_notes(groups)  # noqa: SLF001\n  File \"F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\scripts\\run_true_ablation.py\", line 257, in infer_no_repair\n    llm_text = llm_mod._call_llm_with_messages(llm_mod._build_messages(groups))  # noqa: SLF001\n  File \"F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\scripts\\run_true_ablation.py\", line 355, in wrapped_call\n    return original_call(messages)\n  File \"F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\baseline_snapshot\\llm_module.py\", line 327, in _call_llm_with_messages\n    response_json = _post_chat_completion(payload, headers, BAILIAN_API_URL, LLM_TIMEOUT_SECONDS)\n  File \"F:\\AIcharacter\\End\\thesis_materials_2026-04-17\\ablation_llm_2026-04-17\\baseline_snapshot\\llm_module.py\", line 305, in _post_chat_completion\n    response = requests.post(api_url, headers=headers, json=payload, timeout=timeout)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\requests\\api.py\", line 115, in post\n    return request(\"post\", url, data=data, json=json, **kwargs)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\requests\\api.py\", line 59, in request\n    return session.request(method=method, url=url, **kwargs)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\requests\\sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\requests\\sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python39\\site-packages\\requests\\adapters.py\", line 690, in send\n    raise ReadTimeout(e, request=request)\nrequests.exceptions.ReadTimeout: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Read timed out. (read timeout=180.0)\n"
+  },
+  "musicxml": {
+    "ok": true,
+    "error": null,
+    "traceback": null,
+    "xml_length": 689
+  },
+  "notes_merged": [],
+  "notes_public": []
+}

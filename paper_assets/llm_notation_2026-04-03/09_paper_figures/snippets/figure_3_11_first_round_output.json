@@ -1,0 +1,30 @@
+[
+  {
+    "action": "",
+    "duration": "4",
+    "finger": "",
+    "new_measure": true,
+    "octave": "4",
+    "pitch": "1",
+    "position": "一",
+    "string": "一"
+  },
+  {
+    "action": "历",
+    "duration": "8",
+    "finger": "",
+    "octave": "3",
+    "pitch": "6",
+    "position": "",
+    "string": "六"
+  },
+  {
+    "action": "",
+    "duration": "4",
+    "finger": "",
+    "octave": "3",
+    "pitch": "5",
+    "position": "五",
+    "string": "五"
+  }
+]

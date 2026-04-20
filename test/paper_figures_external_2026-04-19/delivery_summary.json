@@ -1,0 +1,38 @@
+{
+  "sample": {
+    "raw_image": "F:\\AIcharacter\\End\\backend\\static\\uploads\\testpicture-1.jpg",
+    "result_json": "F:\\AIcharacter\\End\\backend\\static\\uploads\\testpicture-1.jpg_result.json",
+    "score_render_source": "F:\\AIcharacter\\End\\paper_assets\\llm_notation_2026-04-03\\05_conversion_evidence\\scoremodel-after-measure-wrap-fix.png",
+    "reuse_existing_result": true
+  },
+  "counts": {
+    "detected_boxes": 378,
+    "group_count": 135,
+    "ordered_sequence_length": 135
+  },
+  "final_figures": {
+    "semantic_reconstruction_overview": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\figures\\semantic_reconstruction_overview.png",
+    "topology_ordering_overview": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\figures\\topology_ordering_overview.png",
+    "representative_case_end_to_end": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\figures\\representative_case_end_to_end.png"
+  },
+  "materials": {
+    "raw_input": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\raw_input.png",
+    "detection_boxes": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\detection_boxes.png",
+    "group_aggregation": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\group_aggregation.png",
+    "ordered_sequence": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\ordered_sequence.png",
+    "raw_input_local": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\raw_input_local.png",
+    "ordered_sequence_local": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\ordered_sequence_local.png",
+    "final_score_cropped": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\final_score_cropped.png",
+    "fig5_4_materials_dir": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\materials\\fig5-4_materials"
+  },
+  "text_snippets": {
+    "group_sequence_simplified_json": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\text_snippets\\group_sequence_simplified.json",
+    "topology_full_json": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\text_snippets\\topology_full.json",
+    "jianzi_sequence_full_json": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\text_snippets\\jianzi_sequence_full.json",
+    "structured_score_preview_json": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\text_snippets\\structured_score_preview.json",
+    "musicxml_snippet_xml": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\text_snippets\\musicxml_snippet.xml"
+  },
+  "source_data": {
+    "copied_raw_and_result": "F:\\AIcharacter\\End\\test\\paper_figures_external_2026-04-19\\source_data"
+  }
+}

@@ -1,0 +1,3987 @@
+[
+  {
+    "group_id": "group_1",
+    "sequence_index": 1,
+    "is_marker": false,
+    "action": "历",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_2",
+    "sequence_index": 2,
+    "is_marker": false,
+    "action": "",
+    "string": "五",
+    "position": "五",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "五",
+    "xian": "",
+    "components": [
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_3",
+    "sequence_index": 3,
+    "is_marker": false,
+    "action": "历",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_4",
+    "sequence_index": 4,
+    "is_marker": false,
+    "action": "历",
+    "string": "五",
+    "position": "",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "五",
+    "components": [
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_5",
+    "sequence_index": 5,
+    "is_marker": false,
+    "action": "擘",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_6",
+    "sequence_index": 6,
+    "is_marker": false,
+    "action": "勾",
+    "string": "一",
+    "position": "七",
+    "finger": "食",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "食",
+    "hui": "七",
+    "xian": "一",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "食指",
+        "class_id": 59,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_7",
+    "sequence_index": 7,
+    "is_marker": true,
+    "action": "",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "泛止",
+        "class_id": 65,
+        "role": "section_end"
+      }
+    ]
+  },
+  {
+    "group_id": "group_8",
+    "sequence_index": 8,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "",
+    "finger": "大",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_9",
+    "sequence_index": 9,
+    "is_marker": false,
+    "action": "",
+    "string": "七",
+    "position": "七七",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "七七",
+    "xian": "七",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_10",
+    "sequence_index": 10,
+    "is_marker": false,
+    "action": "猱",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_11",
+    "sequence_index": 11,
+    "is_marker": false,
+    "action": "",
+    "string": "一",
+    "position": "一",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "一",
+    "xian": "",
+    "components": [
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_12",
+    "sequence_index": 12,
+    "is_marker": false,
+    "action": "勾",
+    "string": "一",
+    "position": "",
+    "finger": "大",
+    "right_fingering": "勾",
+    "left_fingering": "散",
+    "left_finger": "大",
+    "hui": "",
+    "xian": "一",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_13",
+    "sequence_index": 13,
+    "is_marker": false,
+    "action": "抹",
+    "string": "四",
+    "position": "七",
+    "finger": "大",
+    "right_fingering": "抹",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "七",
+    "xian": "四",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "抹",
+        "class_id": 10,
+        "role": "right_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_14",
+    "sequence_index": 14,
+    "is_marker": false,
+    "action": "",
+    "string": "一",
+    "position": "一",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "一",
+    "xian": "",
+    "components": [
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_15",
+    "sequence_index": 15,
+    "is_marker": false,
+    "action": "猱",
+    "string": "十",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "十",
+    "components": [
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      },
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_16",
+    "sequence_index": 16,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_17",
+    "sequence_index": 17,
+    "is_marker": false,
+    "action": "撮",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "撮",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "撮",
+        "class_id": 28,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_18",
+    "sequence_index": 18,
+    "is_marker": false,
+    "action": "搯",
+    "string": "三",
+    "position": "",
+    "finger": "",
+    "right_fingering": "搯",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "三",
+    "components": [
+      {
+        "class": "搯",
+        "class_id": 30,
+        "role": "right_hand"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_19",
+    "sequence_index": 19,
+    "is_marker": false,
+    "action": "擘",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_20",
+    "sequence_index": 20,
+    "is_marker": false,
+    "action": "勾",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_21",
+    "sequence_index": 21,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "九",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "九",
+    "xian": "",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_22",
+    "sequence_index": 22,
+    "is_marker": false,
+    "action": "历",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_23",
+    "sequence_index": 23,
+    "is_marker": false,
+    "action": "轮",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "轮",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "轮",
+        "class_id": 22,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_24",
+    "sequence_index": 24,
+    "is_marker": false,
+    "action": "如一",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "如一",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "如一",
+        "class_id": 34,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_25",
+    "sequence_index": 25,
+    "is_marker": false,
+    "action": "",
+    "string": "二",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "二",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_26",
+    "sequence_index": 26,
+    "is_marker": false,
+    "action": "擘",
+    "string": "七",
+    "position": "",
+    "finger": "大",
+    "right_fingering": "擘",
+    "left_fingering": "散",
+    "left_finger": "大",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_27",
+    "sequence_index": 27,
+    "is_marker": false,
+    "action": "勾",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_28",
+    "sequence_index": 28,
+    "is_marker": false,
+    "action": "猱",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_29",
+    "sequence_index": 29,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "四",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_30",
+    "sequence_index": 30,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "一十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "一十",
+    "xian": "二",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_31",
+    "sequence_index": 31,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "四",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_32",
+    "sequence_index": 32,
+    "is_marker": false,
+    "action": "擘",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_33",
+    "sequence_index": 33,
+    "is_marker": false,
+    "action": "挑",
+    "string": "十",
+    "position": "七",
+    "finger": "名",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "七",
+    "xian": "十",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      },
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_34",
+    "sequence_index": 34,
+    "is_marker": false,
+    "action": "勾",
+    "string": "九",
+    "position": "三",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "三",
+    "xian": "九",
+    "components": [
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_35",
+    "sequence_index": 35,
+    "is_marker": false,
+    "action": "历",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_36",
+    "sequence_index": 36,
+    "is_marker": false,
+    "action": "擘",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_37",
+    "sequence_index": 37,
+    "is_marker": false,
+    "action": "勾",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_38",
+    "sequence_index": 38,
+    "is_marker": false,
+    "action": "撞",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "撞",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "撞",
+        "class_id": 44,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_39",
+    "sequence_index": 39,
+    "is_marker": false,
+    "action": "唤",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "唤",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "唤",
+        "class_id": 47,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_40",
+    "sequence_index": 40,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "四",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_41",
+    "sequence_index": 41,
+    "is_marker": false,
+    "action": "",
+    "string": "一",
+    "position": "十",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "十",
+    "xian": "一",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_42",
+    "sequence_index": 42,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "二",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_43",
+    "sequence_index": 43,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "四",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_44",
+    "sequence_index": 44,
+    "is_marker": false,
+    "action": "擘",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_45",
+    "sequence_index": 45,
+    "is_marker": false,
+    "action": "勾",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_46",
+    "sequence_index": 46,
+    "is_marker": false,
+    "action": "猱",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_47",
+    "sequence_index": 47,
+    "is_marker": false,
+    "action": "擘",
+    "string": "七",
+    "position": "二",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "二",
+    "xian": "七",
+    "components": [
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      },
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_48",
+    "sequence_index": 48,
+    "is_marker": false,
+    "action": "",
+    "string": "三",
+    "position": "十",
+    "finger": "大",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_49",
+    "sequence_index": 49,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_50",
+    "sequence_index": 50,
+    "is_marker": false,
+    "action": "打",
+    "string": "",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "打",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "打",
+        "class_id": 18,
+        "role": "right_hand"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_51",
+    "sequence_index": 51,
+    "is_marker": false,
+    "action": "打",
+    "string": "二",
+    "position": "一十",
+    "finger": "中",
+    "right_fingering": "打",
+    "left_fingering": "注",
+    "left_finger": "中",
+    "hui": "一十",
+    "xian": "二",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "中指",
+        "class_id": 60,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      },
+      {
+        "class": "注",
+        "class_id": 41,
+        "role": "left_hand"
+      },
+      {
+        "class": "打",
+        "class_id": 18,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_52",
+    "sequence_index": 52,
+    "is_marker": false,
+    "action": "勾",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_53",
+    "sequence_index": 53,
+    "is_marker": false,
+    "action": "",
+    "string": "八",
+    "position": "一二",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "一二",
+    "xian": "八",
+    "components": [
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_54",
+    "sequence_index": 54,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_55",
+    "sequence_index": 55,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "一十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "一十",
+    "xian": "五",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_56",
+    "sequence_index": 56,
+    "is_marker": false,
+    "action": "挑",
+    "string": "三",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "三",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_57",
+    "sequence_index": 57,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "一十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "一十",
+    "xian": "五",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_58",
+    "sequence_index": 58,
+    "is_marker": false,
+    "action": "如一",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "如一",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "如一",
+        "class_id": 34,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_59",
+    "sequence_index": 59,
+    "is_marker": false,
+    "action": "",
+    "string": "二",
+    "position": "九",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "九",
+    "xian": "二",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_60",
+    "sequence_index": 60,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "九",
+    "finger": "大",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "九",
+    "xian": "七",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_61",
+    "sequence_index": 61,
+    "is_marker": false,
+    "action": "猱",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_62",
+    "sequence_index": 62,
+    "is_marker": false,
+    "action": "历",
+    "string": "六",
+    "position": "九",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "九",
+    "xian": "六",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_63",
+    "sequence_index": 63,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "一十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "一十",
+    "xian": "五",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_64",
+    "sequence_index": 64,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "九",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "九",
+    "xian": "",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_65",
+    "sequence_index": 65,
+    "is_marker": false,
+    "action": "挑",
+    "string": "九",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "九",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_66",
+    "sequence_index": 66,
+    "is_marker": false,
+    "action": "勾",
+    "string": "四",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "四",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_67",
+    "sequence_index": 67,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_68",
+    "sequence_index": 68,
+    "is_marker": false,
+    "action": "",
+    "string": "三",
+    "position": "三",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "三",
+    "xian": "",
+    "components": [
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_69",
+    "sequence_index": 69,
+    "is_marker": false,
+    "action": "",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_70",
+    "sequence_index": 70,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "九",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "九",
+    "xian": "五",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_71",
+    "sequence_index": 71,
+    "is_marker": false,
+    "action": "抹",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "抹",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "抹",
+        "class_id": 10,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_72",
+    "sequence_index": 72,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "五",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_73",
+    "sequence_index": 73,
+    "is_marker": false,
+    "action": "勾",
+    "string": "六",
+    "position": "八七",
+    "finger": "大",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "八七",
+    "xian": "六",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_74",
+    "sequence_index": 74,
+    "is_marker": false,
+    "action": "",
+    "string": "七",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_75",
+    "sequence_index": 75,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_76",
+    "sequence_index": 76,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "五",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "五",
+    "xian": "",
+    "components": [
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_77",
+    "sequence_index": 77,
+    "is_marker": false,
+    "action": "猱",
+    "string": "七",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_78",
+    "sequence_index": 78,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "八",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "八",
+    "xian": "",
+    "components": [
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_79",
+    "sequence_index": 79,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "五",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_80",
+    "sequence_index": 80,
+    "is_marker": false,
+    "action": "",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_81",
+    "sequence_index": 81,
+    "is_marker": false,
+    "action": "拂",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "拂",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "拂",
+        "class_id": 21,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_82",
+    "sequence_index": 82,
+    "is_marker": false,
+    "action": "历",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_83",
+    "sequence_index": 83,
+    "is_marker": false,
+    "action": "历",
+    "string": "九",
+    "position": "九",
+    "finger": "",
+    "right_fingering": "历",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "九",
+    "components": [
+      {
+        "class": "历",
+        "class_id": 24,
+        "role": "right_hand"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_84",
+    "sequence_index": 84,
+    "is_marker": false,
+    "action": "勾剔",
+    "string": "二",
+    "position": "",
+    "finger": "中",
+    "right_fingering": "勾剔",
+    "left_fingering": "",
+    "left_finger": "中",
+    "hui": "",
+    "xian": "二",
+    "components": [
+      {
+        "class": "中指",
+        "class_id": 60,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾剔",
+        "class_id": 15,
+        "role": "right_hand"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_85",
+    "sequence_index": 85,
+    "is_marker": false,
+    "action": "勾",
+    "string": "九",
+    "position": "九",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "九",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_86",
+    "sequence_index": 86,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "二",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_87",
+    "sequence_index": 87,
+    "is_marker": false,
+    "action": "打",
+    "string": "一",
+    "position": "九",
+    "finger": "中",
+    "right_fingering": "打",
+    "left_fingering": "",
+    "left_finger": "中",
+    "hui": "九",
+    "xian": "一",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "中指",
+        "class_id": 60,
+        "role": "left_finger"
+      },
+      {
+        "class": "打",
+        "class_id": 18,
+        "role": "right_hand"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_88",
+    "sequence_index": 88,
+    "is_marker": false,
+    "action": "",
+    "string": "八",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "八",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_89",
+    "sequence_index": 89,
+    "is_marker": false,
+    "action": "抹",
+    "string": "一",
+    "position": "七一",
+    "finger": "大",
+    "right_fingering": "抹",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "七一",
+    "xian": "",
+    "components": [
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "抹",
+        "class_id": 10,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_90",
+    "sequence_index": 90,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_91",
+    "sequence_index": 91,
+    "is_marker": false,
+    "action": "猱",
+    "string": "九",
+    "position": "九",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "九",
+    "components": [
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_92",
+    "sequence_index": 92,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "",
+    "finger": "中",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "中",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "中指",
+        "class_id": 60,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_93",
+    "sequence_index": 93,
+    "is_marker": false,
+    "action": "打",
+    "string": "一",
+    "position": "一九",
+    "finger": "大",
+    "right_fingering": "打",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "一九",
+    "xian": "",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "打",
+        "class_id": 18,
+        "role": "right_hand"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_94",
+    "sequence_index": 94,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_95",
+    "sequence_index": 95,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "九九",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "九九",
+    "xian": "二",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_96",
+    "sequence_index": 96,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "八",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "八",
+    "xian": "",
+    "components": [
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_97",
+    "sequence_index": 97,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_98",
+    "sequence_index": 98,
+    "is_marker": false,
+    "action": "勾",
+    "string": "四",
+    "position": "九",
+    "finger": "大",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "九",
+    "xian": "四",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_99",
+    "sequence_index": 99,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "一十",
+    "finger": "大",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "一十",
+    "xian": "五",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_100",
+    "sequence_index": 100,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_101",
+    "sequence_index": 101,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      }
+    ]
+  },
+  {
+    "group_id": "group_102",
+    "sequence_index": 102,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "六",
+    "finger": "名",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "名",
+    "hui": "六",
+    "xian": "七",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      },
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_103",
+    "sequence_index": 103,
+    "is_marker": false,
+    "action": "打",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "打",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "打",
+        "class_id": 18,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_104",
+    "sequence_index": 104,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "一十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "一十",
+    "xian": "五",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_105",
+    "sequence_index": 105,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_106",
+    "sequence_index": 106,
+    "is_marker": false,
+    "action": "打",
+    "string": "",
+    "position": "八",
+    "finger": "中",
+    "right_fingering": "打",
+    "left_fingering": "",
+    "left_finger": "中",
+    "hui": "八",
+    "xian": "",
+    "components": [
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      },
+      {
+        "class": "中指",
+        "class_id": 60,
+        "role": "left_finger"
+      },
+      {
+        "class": "打",
+        "class_id": 18,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_107",
+    "sequence_index": 107,
+    "is_marker": false,
+    "action": "剔",
+    "string": "一",
+    "position": "",
+    "finger": "",
+    "right_fingering": "剔",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "一",
+    "components": [
+      {
+        "class": "剔",
+        "class_id": 13,
+        "role": "right_hand"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_108",
+    "sequence_index": 108,
+    "is_marker": false,
+    "action": "勾",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_109",
+    "sequence_index": 109,
+    "is_marker": false,
+    "action": "勾",
+    "string": "一",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "一",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_110",
+    "sequence_index": 110,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "绰",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "二",
+    "components": [
+      {
+        "class": "绰",
+        "class_id": 40,
+        "role": "left_hand"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_111",
+    "sequence_index": 111,
+    "is_marker": false,
+    "action": "",
+    "string": "一",
+    "position": "三",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "三",
+    "xian": "一",
+    "components": [
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_112",
+    "sequence_index": 112,
+    "is_marker": false,
+    "action": "勾剔",
+    "string": "四",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾剔",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "四",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾剔",
+        "class_id": 15,
+        "role": "right_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_113",
+    "sequence_index": 113,
+    "is_marker": false,
+    "action": "勾",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_114",
+    "sequence_index": 114,
+    "is_marker": false,
+    "action": "挑",
+    "string": "六",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "挑",
+    "left_fingering": "绰",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "绰",
+        "class_id": 40,
+        "role": "left_hand"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_115",
+    "sequence_index": 115,
+    "is_marker": false,
+    "action": "挑",
+    "string": "二",
+    "position": "四",
+    "finger": "名",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "四",
+    "xian": "二",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_116",
+    "sequence_index": 116,
+    "is_marker": false,
+    "action": "",
+    "string": "",
+    "position": "十",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "十",
+    "xian": "",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_117",
+    "sequence_index": 117,
+    "is_marker": false,
+    "action": "",
+    "string": "二",
+    "position": "十九",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "十九",
+    "xian": "二",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_118",
+    "sequence_index": 118,
+    "is_marker": false,
+    "action": "抹",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "抹",
+    "left_fingering": "绰",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "绰",
+        "class_id": 40,
+        "role": "left_hand"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "抹",
+        "class_id": 10,
+        "role": "right_hand"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_119",
+    "sequence_index": 119,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "",
+    "xian": "二",
+    "components": [
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_120",
+    "sequence_index": 120,
+    "is_marker": false,
+    "action": "",
+    "string": "二",
+    "position": "二",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "二",
+    "xian": "",
+    "components": [
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_121",
+    "sequence_index": 121,
+    "is_marker": false,
+    "action": "擘",
+    "string": "七",
+    "position": "",
+    "finger": "",
+    "right_fingering": "擘",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "七",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "擘",
+        "class_id": 16,
+        "role": "right_hand"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_122",
+    "sequence_index": 122,
+    "is_marker": false,
+    "action": "勾",
+    "string": "三",
+    "position": "十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "十",
+    "xian": "三",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "三",
+        "class_id": 2,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_123",
+    "sequence_index": 123,
+    "is_marker": false,
+    "action": "猱",
+    "string": "",
+    "position": "",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "猱",
+    "left_finger": "",
+    "hui": "",
+    "xian": "",
+    "components": [
+      {
+        "class": "猱",
+        "class_id": 54,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_124",
+    "sequence_index": 124,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "四",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_125",
+    "sequence_index": 125,
+    "is_marker": false,
+    "action": "勾",
+    "string": "二",
+    "position": "一十",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "一十",
+    "xian": "二",
+    "components": [
+      {
+        "class": "十",
+        "class_id": 9,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "一",
+        "class_id": 0,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "二",
+        "class_id": 1,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_126",
+    "sequence_index": 126,
+    "is_marker": false,
+    "action": "挑",
+    "string": "四",
+    "position": "",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "四",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_127",
+    "sequence_index": 127,
+    "is_marker": false,
+    "action": "",
+    "string": "四",
+    "position": "四",
+    "finger": "",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "四",
+    "xian": "",
+    "components": [
+      {
+        "class": "四",
+        "class_id": 3,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_128",
+    "sequence_index": 128,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "九",
+    "finger": "名",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "九",
+    "xian": "五",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_129",
+    "sequence_index": 129,
+    "is_marker": false,
+    "action": "抹",
+    "string": "六",
+    "position": "",
+    "finger": "",
+    "right_fingering": "抹",
+    "left_fingering": "注",
+    "left_finger": "",
+    "hui": "",
+    "xian": "六",
+    "components": [
+      {
+        "class": "抹",
+        "class_id": 10,
+        "role": "right_hand"
+      },
+      {
+        "class": "注",
+        "class_id": 41,
+        "role": "left_hand"
+      },
+      {
+        "class": "六",
+        "class_id": 5,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_130",
+    "sequence_index": 130,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "",
+    "left_finger": "",
+    "hui": "",
+    "xian": "五",
+    "components": [
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_131",
+    "sequence_index": 131,
+    "is_marker": false,
+    "action": "抹",
+    "string": "七",
+    "position": "八七",
+    "finger": "大",
+    "right_fingering": "抹",
+    "left_fingering": "",
+    "left_finger": "大",
+    "hui": "八七",
+    "xian": "",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "大指",
+        "class_id": 58,
+        "role": "left_finger"
+      },
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      },
+      {
+        "class": "抹",
+        "class_id": 10,
+        "role": "right_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_132",
+    "sequence_index": 132,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "七",
+    "finger": "",
+    "right_fingering": "挑",
+    "left_fingering": "吟",
+    "left_finger": "",
+    "hui": "七",
+    "xian": "",
+    "components": [
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      },
+      {
+        "class": "吟",
+        "class_id": 48,
+        "role": "left_hand"
+      }
+    ]
+  },
+  {
+    "group_id": "group_133",
+    "sequence_index": 133,
+    "is_marker": false,
+    "action": "",
+    "string": "九",
+    "position": "八",
+    "finger": "名",
+    "right_fingering": "",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "八",
+    "xian": "九",
+    "components": [
+      {
+        "class": "八",
+        "class_id": 7,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_134",
+    "sequence_index": 134,
+    "is_marker": false,
+    "action": "勾",
+    "string": "五",
+    "position": "",
+    "finger": "",
+    "right_fingering": "勾",
+    "left_fingering": "散",
+    "left_finger": "",
+    "hui": "",
+    "xian": "五",
+    "components": [
+      {
+        "class": "散",
+        "class_id": 63,
+        "role": "left_hand"
+      },
+      {
+        "class": "勾",
+        "class_id": 12,
+        "role": "right_hand"
+      },
+      {
+        "class": "五",
+        "class_id": 4,
+        "role": "number"
+      }
+    ]
+  },
+  {
+    "group_id": "group_135",
+    "sequence_index": 135,
+    "is_marker": false,
+    "action": "挑",
+    "string": "七",
+    "position": "九",
+    "finger": "名",
+    "right_fingering": "挑",
+    "left_fingering": "",
+    "left_finger": "名",
+    "hui": "九",
+    "xian": "七",
+    "components": [
+      {
+        "class": "九",
+        "class_id": 8,
+        "role": "number"
+      },
+      {
+        "class": "名指",
+        "class_id": 61,
+        "role": "left_finger"
+      },
+      {
+        "class": "七",
+        "class_id": 6,
+        "role": "number"
+      },
+      {
+        "class": "挑",
+        "class_id": 11,
+        "role": "right_hand"
+      }
+    ]
+  }
+]

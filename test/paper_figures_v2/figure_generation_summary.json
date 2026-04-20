@@ -1,0 +1,20 @@
+{
+  "sample_image": "F:\\AIcharacter\\End\\test\\testpicture-1.jpg",
+  "counts": {
+    "detected_boxes": 378,
+    "group_count": 135,
+    "ordered_sequence_length": 135
+  },
+  "figures": {
+    "fig3_10": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\fig3-10_topology_sequence.png"
+  },
+  "fig5_4_materials": {
+    "raw_input": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\fig5-4_materials\\raw_input.png",
+    "detection_boxes": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\fig5-4_materials\\detection_boxes.png",
+    "group_aggregation": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\fig5-4_materials\\group_aggregation.png",
+    "ordered_sequence": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\fig5-4_materials\\ordered_sequence.png",
+    "simplified_group_json": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\fig5-4_materials\\group_sequence_simplified.json",
+    "topology_json": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\source_data\\topology_full.json",
+    "sequence_json": "F:\\AIcharacter\\End\\test\\paper_figures_v2\\source_data\\jianzi_sequence_full.json"
+  }
+}

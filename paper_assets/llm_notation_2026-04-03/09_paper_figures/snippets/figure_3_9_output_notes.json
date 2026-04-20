@@ -1,0 +1,75 @@
+[
+  {
+    "action": "",
+    "duration": "4",
+    "finger": "",
+    "new_measure": true,
+    "octave": "4",
+    "pitch": "1",
+    "position": "一",
+    "string": "一"
+  },
+  {
+    "action": "历",
+    "duration": "8",
+    "finger": "",
+    "octave": "3",
+    "pitch": "6",
+    "position": "",
+    "string": "六"
+  },
+  {
+    "action": "",
+    "duration": "4",
+    "finger": "",
+    "octave": "3",
+    "pitch": "5",
+    "position": "五",
+    "string": "五"
+  },
+  {
+    "action": "历",
+    "duration": "8",
+    "finger": "",
+    "octave": "3",
+    "pitch": "6",
+    "position": "",
+    "string": "六"
+  },
+  {
+    "action": "历",
+    "duration": "8",
+    "finger": "",
+    "octave": "3",
+    "pitch": "5",
+    "position": "",
+    "string": "五"
+  },
+  {
+    "action": "擘",
+    "duration": "4",
+    "finger": "",
+    "octave": "3",
+    "pitch": "6",
+    "position": "",
+    "string": "六"
+  },
+  {
+    "action": "勾",
+    "duration": "4",
+    "finger": "食",
+    "octave": "4",
+    "pitch": "1",
+    "position": "七",
+    "string": "一"
+  },
+  {
+    "action": "背锁",
+    "duration": "8",
+    "finger": "大",
+    "octave": "4",
+    "pitch": "4",
+    "position": "七七",
+    "string": "四"
+  }
+]
