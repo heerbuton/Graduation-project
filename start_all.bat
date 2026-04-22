@@ -42,7 +42,7 @@ if errorlevel 1 (
 )
 
 set "BACKEND_CMD=cd /d ""%ROOT%\backend"" && ""%PYTHON_EXE%"" app.py"
-set "FRONTEND_CMD=cd /d ""%ROOT%\frontend"" && npm run dev"
+set "FRONTEND_CMD=cd /d ""%ROOT%\frontend"" && npm run dev -- --host 127.0.0.1 --port 5173"
 
 if defined DRY_RUN (
   echo [DRY-RUN] start "Backend Flask" cmd /k "%BACKEND_CMD%"
@@ -56,8 +56,7 @@ start "Frontend Vite" cmd /k "%FRONTEND_CMD%"
 echo.
 echo [OK] Services are starting...
 echo Backend:  http://127.0.0.1:5000
-echo Frontend: http://localhost:5173  (or the port shown in the frontend window)
+echo Frontend: http://127.0.0.1:5173
 echo.
 echo You can close each service by closing its command window.
 exit /b 0
-
