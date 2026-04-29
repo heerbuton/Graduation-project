@@ -1,9 +1,0 @@
-{
-  "image": "F:\\AIcharacter\\End\\test\\testpicture-1.jpg",
-  "counts": {
-    "yolo_boxes": 377,
-    "topology_groups": 1,
-    "llm_notes": 1
-  },
-  "boxed_image": "F:\\AIcharacter\\End\\test\\pipeline_test_outputs\\testpicture-1_red_boxes.jpg"
-}

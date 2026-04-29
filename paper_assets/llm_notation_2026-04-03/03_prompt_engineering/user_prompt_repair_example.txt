@@ -1,6 +1,0 @@
-校验失败原因：
-字段 pitch 非法: 9
-输入 groups：
-[{"group_id":"group_1","right_fingering":"历","left_fingering":"","left_finger":"","hui":"","xian":"六","action":"历","finger":"","position":"","string":"六","tone_table_hit":true,"tone_table_pitch":"5","tone_table_octave":"3","tone_table_ref":"6弦空弦->低音5"},{"group_id":"group_2","right_fingering":"勾","left_fingering":"","left_finger":"大","hui":"九","xian":"一","action":"勾","finger":"大","position":"九","string":"一","tone_table_hit":true,"tone_table_pitch":"2","tone_table_octave":"3","tone_table_ref":"1弦九->低音2"},{"group_id":"group_3","right_fingering":"抹","left_fingering":"","left_finger":"中","hui":"七","xian":"四","action":"抹","finger":"中","position":"七","string":"四","tone_table_hit":true,"tone_table_pitch":"2","tone_table_octave":"4","tone_table_ref":"4弦七->2"}]
-待修复 draft_notes：
-[{"group_id":"group_1","pitch":"9","octave":"7","duration":"32","action":"历","string":"六","position":"","finger":"","new_measure":false}]

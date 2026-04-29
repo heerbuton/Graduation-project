@@ -1,92 +1,104 @@
-# 伯牙解谱 (Boyajiepu) 端到端 Web 演示系统原型
+# 伯牙解谱：古琴减字谱自动识别与打谱系统
 
-本项目是《基于 LLM 的古琴谱自动翻译算法及系统开发》的前后端分离原型系统。  
-后端采用 Flask 组织流水线，前端采用 Vue 3 + Vite 展示结果。
+本仓库是毕业设计项目《基于 LLM 的古琴谱自动翻译算法及系统开发》的最终版代码。项目已经完成，后续不再进行常规功能更新；仓库保留为答辩、复现和展示用的终稿版本。
 
-当前版本同时输出并支持两种渲染数据：
-
-- `music_xml`：标准 MusicXML
-- `score_model`：前端直接渲染的结构化谱面模型（推荐主链路）
+系统采用前后端分离架构：后端用 Flask 串联 YOLO 视觉检测、拓扑聚合、LLM 语义打谱和 MusicXML/ScoreModel 输出；前端用 Vue 3 + Vite 展示上传、识别流程、人工修正和最终谱面渲染结果。
 
 ---
 
-## 最新能力（已落地）
+## 项目状态
 
-- 支持 `LLM JSON -> Python 规范化 -> ScoreModel -> 前端渲染`
-- 支持自动分小节（4/4 时值推断 + 显式 `new_measure` 混合策略）
-- 支持谱面换行显示（当前为每行 3 小节）
-- 支持小节线显示
-- 前端支持一键加载 `testpicture-1` 已落盘结果进行渲染检查
+- 当前状态：终稿归档版
+- 更新策略：不再做常规迭代，仅保留必要的运行说明和代码整理
+- 论文材料：本地已整理到 `论文支持/`，该目录不会上传到 GitHub
+- 远端仓库：仅保留项目运行所需代码、模型入口、测试脚本和说明文档
 
 ---
 
-## 目录结构（关键部分）
+## 核心能力
+
+- 上传古琴减字谱图片并执行端到端识别流程
+- 使用 YOLO 权重进行减字谱部件检测
+- 支持 `Yolo/README.md` 中记录的多模型 SAHI 切片召回优先方案
+- 对检测框进行拓扑排序、空间聚合和减字序列化
+- 调用 LLM 将减字结构转换为结构化打谱结果
+- 同时输出 `music_xml` 和前端可直接渲染的 `score_model`
+- 前端支持流程态展示、局部人工修正、重新推理和最终谱面渲染
+- 测试脚本可输出红框标注的检测结果图片，便于检查识别流程
+
+---
+
+## 目录结构
 
 ```text
 f:/AIcharacter/End/
 ├── backend/
 │   ├── app.py
+│   ├── best.pt
 │   ├── requirements.txt
-│   ├── static/uploads/
 │   └── pipeline/
 │       ├── cv_module.py
 │       ├── topology_module.py
 │       ├── llm_module.py
 │       ├── musicxml_encoder.py
-│       └── score_model_transformer.py   # 新增：LLM结果 -> ScoreModel
+│       └── score_model_transformer.py
 ├── frontend/
 │   ├── package.json
 │   └── src/
 │       ├── App.vue
 │       ├── components/
-│       │   └── ScoreModelRenderer.vue   # 新增：ScoreModel渲染组件
 │       └── utils/
-│           ├── scoreModel.js            # 新增：前端fallback转换
-│           └── scoreModel.test.mjs
+├── Yolo/
+│   ├── README.md
+│   ├── reports/
+│   ├── scripts/
+│   └── weights/              # 本地权重目录，已忽略，不上传
 ├── scripts/
-│   └── convert_llm_json_to_score_model.py  # 新增：离线转换脚本
-└── test/
-    ├── test_app_score_model.py
-    ├── test_score_model_transformer.py
-    └── test_score_model_script.py
+│   ├── convert_llm_json_to_score_model.py
+│   ├── git-sync.ps1
+│   └── Use.md
+├── test/
+│   ├── run_backend_pipeline_test.py
+│   └── *.py / 测试输出样例
+├── walkthroughs/
+├── start_all.bat
+├── todo.md
+└── 论文支持/                 # 本地论文支撑材料，已忽略，不上传
 ```
 
----
-
-## 流水线说明
-
-1. 模块 A：`cv_module.py` 进行视觉检测（YOLO）
-2. 模块 B：`topology_module.py` 进行空间拓扑与减字序列化
-3. 模块 C：`llm_module.py` 进行打谱推理，输出 `llm_result`
-4. 模块 D：双输出
-   - `musicxml_encoder.py` 输出 `music_xml`
-   - `score_model_transformer.py` 输出 `score_model`
+`论文支持/` 中归档了原来的 `周日志/`、`paper_assets/`、`thesis_materials_*`、`相关文档/` 等论文支撑材料。它们不再作为仓库内容上传，避免 GitHub 仓库继续膨胀。
 
 ---
 
-## API 返回字段（核心）
+## 后端流水线
 
-### `POST /api/upload`
+1. `cv_module.py`：执行 YOLO/SAHI 视觉检测，输出候选框
+2. `topology_module.py`：根据空间位置聚合减字组件并生成序列
+3. `llm_module.py`：调用 LLM 进行语义打谱推理
+4. `musicxml_encoder.py`：生成 MusicXML
+5. `score_model_transformer.py`：生成前端渲染用的 ScoreModel
 
-返回 `data` 中包含：
+主要接口：
 
-- `original_image_url`
-- `yolo_boxes`
-- `topology_json`
-- `jianzi_sequence`
-- `llm_result`
-- `score_model`
-- `music_xml`
-
-### `GET /api/mock_pipeline`
-
-同样返回上述关键字段（用于前端联调）。
+- `POST /api/upload`：上传图片并执行完整流水线
+- `GET /api/mock_pipeline`：加载测试数据用于前端联调
+- `POST /api/reflow`：基于修正后的结构重新生成谱面结果
 
 ---
 
 ## 本地运行
 
-### 1. 启动后端（推荐使用当前环境下的 Python 解释器）
+### 一键启动
+
+在项目根目录运行：
+
+```bat
+start_all.bat
+```
+
+脚本会分别启动后端 Flask 服务和前端 Vite 服务。
+
+### 手动启动后端
 
 ```powershell
 cd f:/AIcharacter/End/backend
@@ -94,63 +106,95 @@ F:\anaconda\envs\pytorch\python.exe -m pip install -r requirements.txt
 F:\anaconda\envs\pytorch\python.exe app.py
 ```
 
-后端 API 与静态资源服务默认运行在：`http://127.0.0.1:5000`
+后端默认地址：
 
-### 2. 启动前端（推荐绑定 IPv4 物理网卡以防止连接拒绝）
+```text
+http://127.0.0.1:5000
+```
 
-由于最新的 Node.js 策略有时会将 localhost 强制路由为 IPv6(::1)，建议直接将 host 显式绑定在 127.0.0.1 上：
+### 手动启动前端
 
 ```powershell
 cd f:/AIcharacter/End/frontend
 npm install
 npm run dev -- --host 127.0.0.1 --port 5173
-# 如果脚本包装异常，也可直接执行: 
-# .\node_modules\.bin\vite.cmd --host 127.0.0.1 --port 5173
 ```
 
-前端网页界面访问地址：**`http://127.0.0.1:5173/`**
+前端访问地址：
+
+```text
+http://127.0.0.1:5173/
+```
 
 ---
 
-## 体验与查看方式（基于最新 Accordion 手风琴卡片 UI）
+## YOLO 权重说明
 
-### 方式 A：无缝体验海量数据的流水线展开（强烈推荐）
+- `backend/best.pt`：后端默认可用的 YOLO 权重入口
+- `Yolo/weights/`：本地多模型权重目录，已加入 `.gitignore`
+- `Yolo/README.md`：记录最终测试使用的 YOLO 召回优先方案和脚本说明
 
-当前端网页加载完成后：
-1. 直接点击顶栏的 **`Demo: 加载测试图`** 按钮。
-2. 左侧控制台将调取内部已恢复好且跑通的 `testpicture-1.jpg_result.json`（内含 300 多个解析框）。
-3. **视觉特征抽取 -> 拓扑结构序列化 -> AI 推理 -> XML 编码** 这四大核心步骤对应的控制卡片会自动“像手风琴一样”随着进度节奏依次点亮、展开、并最终渲染古琴电子版乐谱，效果极其丝滑爽快。
-
-### 方式 B：真实上传端到端解析
-
-1. 拖拽或点击上传本地源图片。
-2. 点击 **`启动 AI 打谱引擎`**，系统会将图片传回本地的 Flask 引擎实时执行深度学习推理，然后动态推演状态机。
+如果需要使用多模型 SAHI 融合方案，请按 `Yolo/README.md` 准备本地权重；如果只做基础演示，后端会优先使用当前可用的默认权重。
 
 ---
 
-## 离线转换脚本（LLM JSON -> ScoreModel）
+## 测试
+
+后端流水线测试：
 
 ```powershell
 cd f:/AIcharacter/End
-F:\anaconda\envs\pytorch\python.exe scripts/convert_llm_json_to_score_model.py --input <input_json> --output <output_json>
+F:\anaconda\envs\pytorch\python.exe test/run_backend_pipeline_test.py
 ```
 
-输入支持：
+该脚本会使用测试图片跑通识别流程，并在 `test/pipeline_test_outputs/` 输出结果图片。检测框使用红色矩形标注，不显示类别名。
 
-- 直接数组：`[ {...}, {...} ]`
-- 对象包裹：`{"llm_result":[...]}` 或 `{"notes":[...]}`
-
----
-
-## 测试与构建
+ScoreModel 与接口测试：
 
 ```powershell
 cd f:/AIcharacter/End
 F:\anaconda\envs\pytorch\python.exe -m unittest discover -s test -p "test_score_model_transformer.py"
 F:\anaconda\envs\pytorch\python.exe -m unittest discover -s test -p "test_app_score_model.py"
 F:\anaconda\envs\pytorch\python.exe -m unittest discover -s test -p "test_score_model_script.py"
+```
 
+前端构建：
+
+```powershell
 cd f:/AIcharacter/End/frontend
-node --test src/utils/scoreModel.test.mjs
 npm run build
 ```
+
+---
+
+## Git 上传说明
+
+本项目保留了一键提交脚本：
+
+```powershell
+git sync
+```
+
+运行后会提示输入提交说明，回车后自动暂存、提交并推送当前分支。脚本不会自动同步远端内容；如果确实需要先拉取远端更新，可使用：
+
+```powershell
+git sync -PullFirst
+```
+
+更多说明见 `scripts/Use.md`。
+
+当前 `.gitignore` 已排除：
+
+- `论文支持/`
+- `周日志/`
+- `paper_assets/`
+- `相关文档/`
+- `thesis_materials_*/`
+- `Yolo/weights/`
+- 前后端依赖、运行缓存、上传文件和临时日志
+
+---
+
+## 终稿说明
+
+本仓库现在聚焦于系统本体代码和可复现运行流程。论文写作支撑材料仍保留在本地 `论文支持/`，但不再进入 GitHub 仓库；云端历史中已经存在的论文支撑目录会在本次终稿提交后从远端仓库移除。

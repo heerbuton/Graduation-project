@@ -29,6 +29,16 @@ backend/static/uploads/
 *.log
 Yolo/weights/
 
+# Local thesis/support archives
+论文支持/
+周日志/
+paper_assets/
+相关文档/
+thesis_materials_*/
+test/case_selection_*/
+test/page_case_statistics_*/
+test/run_page_case_statistics_*.py
+
 # Secrets / env
 .env
 .env.*

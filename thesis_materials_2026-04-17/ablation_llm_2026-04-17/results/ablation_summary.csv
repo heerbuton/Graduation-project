@@ -1,4 +1,0 @@
-variant_id,variant_name,tone_injection,repair,page_count,group_total,valid_note_total,structured_note_rate,structured_page_pass_count,structured_page_rate,musicxml_success_pages,musicxml_page_rate,llm_total_call_count,variant_total_s
-A0,base_no_tone_no_repair,False,False,18,1609,1328,0.825357,17,0.944444,18,1.0,18,1263.498
-A1,tone_no_repair,True,False,18,1609,1209,0.751398,16,0.888889,18,1.0,18,1184.085
-A2,full_tone_validate_repair,True,True,18,1609,1328,0.825357,17,0.944444,18,1.0,18,1251.564

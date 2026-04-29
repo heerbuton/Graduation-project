@@ -1,8 +1,0 @@
-{
-  "image": "F:\\AIcharacter\\End\\test\\fullpage_yolo.jpg",
-  "yolo_boxes": 405,
-  "topology_groups": 144,
-  "llm_input_groups": 142,
-  "output_image": "F:\\AIcharacter\\End\\test\\cluster_only_outputs_v3\\fullpage_yolo_group_boxes_only_v3.jpg",
-  "topology_json": "F:\\AIcharacter\\End\\test\\cluster_only_outputs_v3\\fullpage_yolo_topology_v3.json"
-}

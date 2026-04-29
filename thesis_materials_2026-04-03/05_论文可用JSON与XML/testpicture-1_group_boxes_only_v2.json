@@ -1,8 +1,0 @@
-{
-  "image": "F:\\AIcharacter\\End\\test\\testpicture-1.jpg",
-  "yolo_boxes": 378,
-  "topology_groups": 115,
-  "bad_action_groups_gt2": 0,
-  "bad_string_groups_gt4": 0,
-  "output_image": "F:\\AIcharacter\\End\\test\\cluster_only_outputs_v2\\testpicture-1_group_boxes_only_v2.jpg"
-}
