@@ -628,6 +628,45 @@ const buildLlmRenderPayload = () => {
     })
 }
 
+const hasMusicXmlForExport = computed(
+  () => typeof musicXml.value === 'string' && musicXml.value.trim().length > 0
+)
+
+const exportMusicXml = () => {
+  const xmlText = String(musicXml.value || '').trim()
+  if (!xmlText) {
+    errorMessage.value = '当前没有可导出的 MusicXML。请先完成打谱渲染。'
+    return
+  }
+
+  try {
+    const blob = new Blob([xmlText], {
+      type: 'application/vnd.recordare.musicxml+xml;charset=utf-8'
+    })
+    const url = URL.createObjectURL(blob)
+    const now = new Date()
+    const stamp = [
+      now.getFullYear(),
+      String(now.getMonth() + 1).padStart(2, '0'),
+      String(now.getDate()).padStart(2, '0'),
+      String(now.getHours()).padStart(2, '0'),
+      String(now.getMinutes()).padStart(2, '0'),
+      String(now.getSeconds()).padStart(2, '0')
+    ].join('')
+    const filename = `boyajiepu_${stamp}.musicxml`
+
+    const link = document.createElement('a')
+    link.href = url
+    link.download = filename
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  } catch (error) {
+    errorMessage.value = error?.message || '导出 MusicXML 失败'
+  }
+}
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 const rerunFromEditedTopology = async () => {
@@ -1375,7 +1414,11 @@ const resetAll = () => {
       <div v-show="activeTab === 'xml'" class="w-full max-w-[1600px] bg-[#fdfdfd] text-slate-800 rounded-2xl animate-fade-in border border-white/20 shadow-2xl flex flex-col overflow-hidden h-[80vh]">
         <div class="bg-gradient-to-r from-slate-100 to-white border-b border-slate-200 px-6 py-4 flex justify-between items-center shadow-sm z-10 shrink-0">
           <h2 class="text-xl font-bold text-slate-700 tracking-wider">打谱渲染容器 (Web ScoreModel View)</h2>
-          <button class="text-xs bg-slate-800 text-white px-5 py-2.5 rounded-lg hover:bg-slate-700 transition shadow-md flex items-center gap-2 font-mono">
+          <button
+            @click="exportMusicXml"
+            :disabled="!hasMusicXmlForExport"
+            class="text-xs bg-slate-800 text-white px-5 py-2.5 rounded-lg hover:bg-slate-700 transition shadow-md flex items-center gap-2 font-mono disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
             Export MusicXML
           </button>
